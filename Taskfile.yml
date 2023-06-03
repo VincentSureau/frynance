@@ -1,0 +1,43 @@
+version: 3
+
+dotenv:
+  - ".env.local"
+  - ".env"
+
+includes:
+  docker:
+    aliases: [ dc ]
+    internal: true
+    taskfile: "../../tasks/Docker.yml"
+  symfony:
+    aliases: [ sf ]
+    taskfile: "../../tasks/Symfony.yml"
+  composer:
+    aliases: [ cp ]
+    taskfile: "../../tasks/Composer.yml"
+  qa:
+    taskfile: "../../tasks/Qa.yml"
+  test:
+    taskfile: "../../tasks/Test.yml"
+  npm:
+    taskfile: "../../tasks/Npm.yml"
+
+tasks:
+  install:
+    label: "🐳 Installing project..."
+    cmds:
+      - task: docker:start
+      - task: composer:install
+      - task: symfony:translation-pull
+      - task: symfony:fixtures-reset
+      - task: symfony:lint-all
+
+  start:
+    label: "🐳 Starting project..."
+    desc: "Start the Docker containers for this project"
+    summary: |
+      This task will start the Docker containers for this project.
+    cmds:
+      - task: docker:start
+      - task: composer:install
+      - task: symfony:lint-all
