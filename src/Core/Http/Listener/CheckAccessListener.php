@@ -2,9 +2,9 @@
 
 namespace App\Core\Http\Listener;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[AsEventListener('kernel.request', method: 'onKernelRequest')]
 class CheckAccessListener extends AbstractController

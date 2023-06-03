@@ -11,7 +11,9 @@ front_controllers:
   name_prefix: app_front_
   requirements:
     _locale: '%app.supported_locales%'
-
+  defaults:
+    _locale: 'fr'
+    
 back_controllers:
   resource:
     path: ../src/Controller/Back
@@ -21,3 +23,5 @@ back_controllers:
   name_prefix: app_admin_
   requirements:
     _locale: '%app.supported_locales%'
+  defaults:
+    _locale: 'fr'
