@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\RecipeIngredientRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: RecipeIngredientRepository::class)]
 class RecipeIngredient
@@ -13,23 +14,29 @@ class RecipeIngredient
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotNull]
     #[ORM\ManyToOne(inversedBy: 'recipeIngredients')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Recipe $recipe = null;
 
+    #[Assert\NotNull]
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Ingredient $ingredient = null;
 
+    #[Assert\Positive]
     #[ORM\Column]
     private ?float $price = null;
 
+    #[Assert\Positive]
     #[ORM\Column]
     private ?float $quantity = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $unit = null;
 
+    #[Assert\Positive]
     #[ORM\Column]
     private ?float $amount = null;
 
