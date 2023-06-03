@@ -33,6 +33,7 @@ readonly class DefaultLocaleRedirectListener
         );
 
         $preferredLocale = $request->getPreferredLanguage($supportedLocales);
+
         if ($request->getLocale() === null) {
             $this->localeSwitcher->setLocale($preferredLocale);
             $this->redirect($event, $preferredLocale);
@@ -41,8 +42,8 @@ readonly class DefaultLocaleRedirectListener
         $uri = $request->getRequestUri();
         $uri = u($uri)->trimStart('/')->before('/')->toString();
 
-        if (!in_array($uri, $supportedLocales, true)) {
-            $request->getSession()->getFlashBag()->add('warning', 'flash.locale.not_supported');
+        if (!str_starts_with($uri, "_") && !in_array($uri, $supportedLocales, true)) {
+            // $request->getSession()->getFlashBag()->add('warning', 'flash.locale.not_supported');
             $this->redirect($event, $preferredLocale);
         }
     }
