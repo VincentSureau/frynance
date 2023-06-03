@@ -71,6 +71,12 @@ class UserTest extends KernelTestCase
         $this->entityManager->flush();
         $this->assertHasErrors($this->getEntity(), 1);
     }
+
+    public function testRedirectToStringReturnFirstnameAndLastname()
+    {
+        $user = $this->getEntity();
+        $this->assertSame($user->getFirstname() . ' ' .$user->getLastname(), $user->__toString());
+    }
     // public function testSomething(): void
     // {
     //     $kernel = self::bootKernel();
