@@ -40,7 +40,7 @@ jobs:
     - name: Create Database
       run: |
         mkdir -p data
-        php bin/console doctrine:database:create
+        touch data/data.db
     - name: Update Database
       run: |
         php bin/console doctrine:schema:update -f --complete
