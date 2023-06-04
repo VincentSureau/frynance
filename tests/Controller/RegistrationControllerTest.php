@@ -42,6 +42,12 @@ class RegistrationControllerTest extends WebTestCase
         $this->assertNotNull($user);
         $this->assertSame('firstname', $user->getFirstName());
         $this->assertSame('lastname', $user->getLastname());
+
+        $this->assertEmailCount(1); // use assertQueuedEmailCount() when using Messenger
+
+        $email = $this->getMailerMessage();
+
+        $this->assertEmailHtmlBodyContains($email, 'Bienvenue sur Frynance');
     }
 
     public function testNewInvalidUser(): void
