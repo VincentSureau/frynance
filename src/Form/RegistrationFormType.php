@@ -24,7 +24,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'class' => 'form-control form-control-xl',
                     'placeholder' => 'Email'
-                ]
+                ],
             ])
             ->add('firstname', TextType::class, [
                 'attr' => [
@@ -45,6 +45,9 @@ class RegistrationFormType extends AbstractType
                 ],
                 'label_attr' => [
                     'class' => 'form-check-label text-gray-600'
+                ],
+                'row_attr' => [
+                    'class' => 'p-0'
                 ],
                 'constraints' => [
                     new IsTrue([
@@ -85,6 +88,7 @@ class RegistrationFormType extends AbstractType
         $resolver->setDefaults([
             'data_class' => User::class,
             'validation_groups' => ['registration'],
+            'novalidate' => 'novalidate', // uses to test form errors
         ]);
     }
 }
