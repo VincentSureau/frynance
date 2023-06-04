@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity('email')]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email', groups: ['registration', 'Default'])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -20,7 +20,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\Email]
+    #[Assert\Email(groups: ['registration', 'Default'])]
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
@@ -30,20 +30,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      */
-    #[Assert\NotBlank]
+    #[Assert\NotBlank(groups: ['Default'])]
     #[ORM\Column]
     private ?string $password = null;
 
-    #[Assert\NotBlank]
+    #[Assert\NotBlank(groups: ['registration', 'Default'])]
     #[ORM\Column(length: 255)]
     private ?string $firstname = null;
 
-    #[Assert\NotBlank]
+    #[Assert\NotBlank(groups: ['registration', 'Default'])]
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Recipe::class, orphanRemoval: true)]
     private Collection $recipes;
+
+    #[ORM\Column(type: 'boolean')]
+    private $isVerified = false;
 
     public function __construct()
     {
@@ -175,6 +178,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $recipe->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }

@@ -40,8 +40,9 @@ jobs:
     - name: Create Database
       run: |
         mkdir -p data
-        touch data/database.sqlite
+        touch data/data.db
+    - name: Update Database
+      run: |
+        php bin/console doctrine:schema:update -f --complete --env=test
     - name: Execute tests (Unit and Feature tests) via PHPUnit
-      env:
-        DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
       run: vendor/bin/phpunit
