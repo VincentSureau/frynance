@@ -13,19 +13,19 @@ class ExceptionListener extends AbstractController
 {
     public function onKernelException(ExceptionEvent $event): void
     {
-        $exception = $event->getThrowable();
-        $statusCode = 500;
-        if ($exception instanceof HttpException) {
-            $statusCode = $exception->getStatusCode();
-        }
+        // $exception = $event->getThrowable();
+        // $statusCode = 500;
+        // if ($exception instanceof HttpException) {
+        //     $statusCode = $exception->getStatusCode();
+        // }
 
-        $event->setResponse(
-            $this->render('theme/errors/error.html.twig', [
-                'title' => "Error {$statusCode}",
-                'description' => 'Error description',
-                'redirect_path' => 'app_front_home',
-                'redirect_btn_trad' => 'Go to home',
-            ])
-        );
+        // $event->setResponse(
+        //     $this->render('theme/errors/error.html.twig', [
+        //         'title' => "Error {$statusCode}",
+        //         'description' => 'Error description',
+        //         'redirect_path' => 'app_front_home',
+        //         'redirect_btn_trad' => 'Go to home',
+        //     ])
+        // );
     }
 }
