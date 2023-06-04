@@ -41,6 +41,8 @@ jobs:
       run: |
         mkdir -p data
         php bin/console doctrine:database:create
+    - name: Update Database
+      run: |
         php bin/console doctrine:schema:update -f --complete
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
