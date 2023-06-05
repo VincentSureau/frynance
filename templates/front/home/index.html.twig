@@ -35,59 +35,61 @@
         <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
       </g>
       <g class="wave3">
-        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+        <use xlink:href="#wave-path" x="50" y="9" fill="currentColor">
       </g>
     </svg>
 
   </section>
 
-    <main id="main">
+  <main class="container">
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
+                      <img class="img-fluid object-fit-scale" src="{{ asset('assets/images/cookie.png') }}" alt="">
+                  </div>
 
-        <!-- ======= About Section ======= -->
-        <section id="about" class="about">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-                        <a href="https://www.youtube.com/watch?v=StpBR2W8G5A" class="glightbox play-btn mb-4"></a>
-                    </div>
+                  <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
+                      <h3>Maximisez votre rentabilité, un ingrédient à la fois !</h3>
+                      <p>Transformez vos recettes en profits avec notre application de calcul de coût de recettes.</p>
+                      <p>Découvrez notre application de calcul de coût de recettes, une plateforme innovante conçue pour aider les cuisiniers amateurs, les chefs professionnels et les propriétaires de restaurant à déterminer un prix de vente rentable pour leurs recettes. En se basant sur le coût réel des ingrédients tirés des prix des magasins en ligne, notre application web intuitive vous aide à établir un prix de vente compétitif tout en assurant une marge bénéficiaire.</p>
+                      <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                          <div class="icon">
+                              <i class="bi bi-card-heading"></i>
+                          </div>
+                          <h4 class="title">Gestion des Recettes</h4>
+                          <p class="description">Créez, modifiez et sauvegardez vos recettes avec la liste des ingrédients et leurs quantités.</p>
+                      </div>
 
-                    <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
-                        <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-                        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
+                      <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                          <div class="icon">
+                            <i class="bi bi-currency-euro"></i>
+                          </div>
+                          <h4 class="title">Optimisez vos Prix</h4>
+                          <p class="description">Assurez-vous que le prix de vente de vos recettes est compétitif tout en maintenant une marge bénéficiaire saine.</p>
+                      </div>
 
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="icon">
-                                <i class="bx bx-fingerprint"></i>
-                            </div>
-                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-                        </div>
+                      <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                          <div class="icon">
+                            <i class="bi bi-hourglass-split"></i>
+                          </div>
+                          <h4 class="title">Gagnez du temps</h4>
+                          <p class="description">Plus besoin de rechercher et calculer manuellement le coût de chaque ingrédient, notre application le fait pour vous.</p>
+                      </div>
 
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="icon"><i class="bx bx-gift"></i></div>
-                            <h4 class="title"><a href="">Nemo Enim</a></h4>
-                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-                        </div>
-
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="icon"><i class="bx bx-atom"></i></div>
-                            <h4 class="title"><a href="">Dine Pad</a></h4>
-                            <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus aut eligendi omnis</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-
-            </div>
-        </div>
-    </div>
+                      <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+                          <div class="icon">
+                            <i class="bi bi-calculator-fill"></i>
+                          </div>
+                          <h4 class="title">Calcul Automatique du Coût</h4>
+                          <p class="description">Le coût total de la recette est automatiquement calculé, permettant de définir un prix de vente approprié.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
 {% endblock %}
 
 {% block js_after %}

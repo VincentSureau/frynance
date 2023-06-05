@@ -133,6 +133,7 @@ $yellow: #f9db19;
 }
 
 .wave3 use {
+    color: var(--bs-body-bg);
     animation: move-forever3 6s linear infinite;
     animation-delay: -2s;
 }
@@ -165,4 +166,80 @@ $yellow: #f9db19;
     100% {
         transform: translate(85px, 0%);
     }
+}
+
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about {
+    padding: 40px 0 0 0;
+}
+
+.about .icon-boxes h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: $green;
+    margin-bottom: 15px;
+}
+
+.about .icon-box {
+    margin-top: 40px;
+}
+
+.about .icon-box .icon {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border: 2px solid $green;
+    border-radius: 50px;
+    background: $green;
+    border-color: $green;
+}
+
+.about .icon-box .icon i {
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.about .icon-box .title {
+    margin-left: 85px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.about .icon-box .description {
+    margin-left: 85px;
+    line-height: 24px;
+    font-size: 14px;
+}
+
+
+@keyframes pulsate-btn {
+    0% {
+        transform: scale(0.6, 0.6);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+.about {
+    .title {
+        color: $green;
+    }
+}
+
+.object-fit-scale {
+    object-fit: scale-down;
 }
