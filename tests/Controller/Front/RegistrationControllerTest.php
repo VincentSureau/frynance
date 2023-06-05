@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Controller;
+namespace App\Tests\Controller\Front;
 
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
