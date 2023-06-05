@@ -1,11 +1,108 @@
-{% extends 'front/layout.html.twig' %}
+{% extends 'theme/layouts/vertical_one_column_layout.html.twig' %}
+
+{% block before_stylesheets %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
 
 {% block content %}
+  <section id="hero">
+
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+          <div data-aos="zoom-out">
+            <h1>Calcul your recipes' cost easily with <span>Frynance</span></h1>
+            <h2>The first app to provide a free cost calculator and quotes generator to sell your awesome cookies online !</h2>
+            <div class="text-center text-lg-start">
+              <a href="{{ path('app_front_register') }}" class="btn-get-started scrollto">Register now !</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+          <img src="{{ asset('assets/images/image-2.png') }}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section>
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
+                        <a href="https://www.youtube.com/watch?v=StpBR2W8G5A" class="glightbox play-btn mb-4"></a>
+                    </div>
+
+                    <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
+                        <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
+                        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
+
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="icon">
+                                <i class="bx bx-fingerprint"></i>
+                            </div>
+                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                        </div>
+
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="icon"><i class="bx bx-gift"></i></div>
+                            <h4 class="title"><a href="">Nemo Enim</a></h4>
+                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                        </div>
+
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="icon"><i class="bx bx-atom"></i></div>
+                            <h4 class="title"><a href="">Dine Pad</a></h4>
+                            <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus aut eligendi omnis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Welcome to the Front !</h1>
+
+
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block js_after %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  /**
+   * Animation on scroll
+   */
+  window.addEventListener('load', () => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    })
+  });
+</script>
 {% endblock %}
