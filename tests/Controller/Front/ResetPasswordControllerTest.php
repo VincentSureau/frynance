@@ -51,7 +51,7 @@ class ResetPasswordControllerTest extends WebTestCase
 
         $email = $this->getMailerMessage();
 
-        $this->assertEmailHtmlBodyContains($email, 'To reset your password');
+        $this->assertEmailHtmlBodyContains($email, 'Changez votre mot de passe');
     }
 
     public function testInvalidUser(): void
