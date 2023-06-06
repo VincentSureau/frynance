@@ -2,7 +2,7 @@
 
 {% extends 'back/layout.html.twig' %}
 
-{% block title %}Ingredient index{% endblock %}
+{% block title %}{{ 'admin.ingredient.index.title'|trans }}{% endblock %}
 
 {% block content %}
 <section class="section">
@@ -30,7 +30,7 @@
                                             <td class="text-bold-500">{{ ingredient.id }}</td>
                                             <td class="text-bold-500">{{ ingredient.name }}</td>
                                             <td class="text-bold-500">
-                                                <a href="{{ path('app_admin_ingredient_edit', {'id': ingredient.id}) }}">{{ "admin.edit"|trans }}</a>
+                                                <a class="btn btn-primary btn-sm" href="{{ path('app_admin_ingredient_edit', {'id': ingredient.id}) }}"><i class="bi bi-pencil"></i> {{ "admin.edit"|trans }}</a>
                                             </td>
                                         </tr>
                                     {% else %}

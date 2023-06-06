@@ -2,12 +2,26 @@
 
 {% extends 'back/layout.html.twig' %}
 
-{% block title %}New Ingredient{% endblock %}
+{% block title %}{{ 'admin.ingredient.create.title'|trans }}{% endblock %}
 
 {% block content %}
-    <h1>Create new Ingredient</h1>
-
-    {{ include('back/ingredient/_form.html.twig') }}
-
-    <a href="{{ path('app_admin_ingredient_index') }}">{{ "admin.back_to_list"|trans }}</a>
+    <section class="section">
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ path('app_admin_ingredient_index') }}">{{ "admin.back_to_list"|trans }}</a>
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title">{{ 'admin.ingredient.create.title'|trans }}</h1>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            {# start card content #}
+                            {{ include('back/ingredient/_form.html.twig') }}
+                            {# end card content #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

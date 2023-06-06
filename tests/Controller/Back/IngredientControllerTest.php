@@ -44,60 +44,46 @@ class IngredientControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', $this->path);
 
         self::assertResponseStatusCodeSame(200);
-        self::assertPageTitleContains('Ingredient index');
+        self::assertPageTitleContains('Liste des ingrédients');
         // Use the $crawler to perform additional assertions e.g.
         // self::assertSame('Some text on the page', $crawler->filter('.p')->first());
     }
 
     public function testNew(): void
     {
+        $this->client->loginUser($this->user);
+        $crawler = $this->client->request('GET', $this->path);
+
         $originalNumObjectsInRepository = count($this->repository->findAll());
 
-        $this->markTestIncomplete();
         $this->client->request('GET', sprintf('%snew', $this->path));
 
         self::assertResponseStatusCodeSame(200);
 
-        $this->client->submitForm('Save', [
+        $this->client->submitForm('Enregistrer', [
             'ingredient[name]' => 'Testing',
         ]);
 
-        self::assertResponseRedirects('/back/ingredient/');
+        self::assertResponseRedirects('/fr/admin/ingredient/');
 
         self::assertSame($originalNumObjectsInRepository + 1, count($this->repository->findAll()));
     }
 
-    public function testShow(): void
-    {
-        $this->markTestIncomplete();
-        $fixture = new Ingredient();
-        $fixture->setName('My Title');
-
-        $this->repository->save($fixture, true);
-
-        $this->client->request('GET', sprintf('%s%s', $this->path, $fixture->getId()));
-
-        self::assertResponseStatusCodeSame(200);
-        self::assertPageTitleContains('Ingredient');
-
-        // Use assertions to check that the properties are properly displayed.
-    }
-
     public function testEdit(): void
     {
-        $this->markTestIncomplete();
+        $this->client->loginUser($this->user);
+
         $fixture = new Ingredient();
         $fixture->setName('My Title');
 
         $this->repository->save($fixture, true);
-
         $this->client->request('GET', sprintf('%s%s/edit', $this->path, $fixture->getId()));
 
-        $this->client->submitForm('Update', [
+        $this->client->submitForm('Enregistrer', [
             'ingredient[name]' => 'Something New',
         ]);
 
-        self::assertResponseRedirects('/back/ingredient/');
+        self::assertResponseRedirects('/fr/admin/ingredient/');
 
         $fixture = $this->repository->findAll();
 
@@ -106,7 +92,7 @@ class IngredientControllerTest extends WebTestCase
 
     public function testRemove(): void
     {
-        $this->markTestIncomplete();
+        $this->client->loginUser($this->user);
 
         $originalNumObjectsInRepository = count($this->repository->findAll());
 
@@ -117,10 +103,10 @@ class IngredientControllerTest extends WebTestCase
 
         self::assertSame($originalNumObjectsInRepository + 1, count($this->repository->findAll()));
 
-        $this->client->request('GET', sprintf('%s%s', $this->path, $fixture->getId()));
-        $this->client->submitForm('Delete');
+        $this->client->request('GET', sprintf('%s%s/edit', $this->path, $fixture->getId()));
+        $this->client->submitForm('Supprimer');
 
         self::assertSame($originalNumObjectsInRepository, count($this->repository->findAll()));
-        self::assertResponseRedirects('/back/ingredient/');
+        self::assertResponseRedirects('/fr/admin/ingredient/');
     }
 }

@@ -10,6 +10,25 @@
             </div>
             <div class="sidebar-menu">
                 <ul class="menu">
+                    <li class="sidebar-title">Menu</li>
+                    <li class="sidebar-item {{ 'app_admin_ingredient_index'|is_active }}">
+                        <a href="{{ path('app_admin_ingredient_index') }}" class="sidebar-link">
+                            <i class="bi bi-egg-fill"></i>
+                            <span>Ingredients</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ 'app_admin_recipe_index'|is_active }}">
+                        <a href="{{ path('app_admin_ingredient_index') }}" class="sidebar-link">
+                            <i class="bi bi-card-checklist"></i>
+                            <span>Recipes</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ 'app_admin_user_index'|is_active }}">
+                        <a href="{{ path('app_admin_ingredient_index') }}" class="sidebar-link">
+                            <i class="bi bi-people-fill"></i>
+                            <span>Users</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
