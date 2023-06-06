@@ -1,21 +1,23 @@
 home:
-  hero:
-    title: "Calcul your recipes' cost easily with <span>Frynance</span>"
-    subtitle: "The first app to provide a free cost calculator and quotes generator to sell your awesome cookies online !"
-    cta: "Register now !"
-  features:
-    title: "Maximize your profitability, one ingredient at a time!"
-    paragraph1: "Turn your recipes into profits with our cost calculation application."
-    paragraph2: "Discover our recipe cost calculation application, an innovative platform designed to help amateur cooks, professional chefs, and restaurant owners to determine a profitable selling price for their recipes. Based on the actual cost of ingredients pulled from online store prices, our intuitive web application assists you in establishing a competitive selling price while ensuring a healthy profit margin."
-    feature1:
-      title: "Recipe Management"
-      description: "Create, modify, and save your recipes with the list of ingredients and their quantities."
-    feature2:
-      title: "Optimize Your Pricing"
-      description: "Ensure that the selling price of your recipes is competitive while maintaining a healthy profit margin."
-    feature3:
-      title: "Save Time"
-      description: "No need to manually search and calculate the cost of each ingredient, our application does it for you."
-    feature4:
-      title: "Automatic Cost Calculation"
-      description: "The total cost of the recipe is automatically calculated, allowing you to define an appropriate selling price."
+    hero:
+        title: "Calcul your recipes' cost easily with <span>Frynance</span>"
+        subtitle: 'The first app to provide a free cost calculator and quotes generator to sell your awesome cookies online !'
+        cta: 'Register now !'
+    features:
+        title: 'Maximize your profitability, one ingredient at a time!'
+        paragraph1: 'Turn your recipes into profits with our cost calculation application.'
+        paragraph2: 'Discover our recipe cost calculation application, an innovative platform designed to help amateur cooks, professional chefs, and restaurant owners to determine a profitable selling price for their recipes. Based on the actual cost of ingredients pulled from online store prices, our intuitive web application assists you in establishing a competitive selling price while ensuring a healthy profit margin.'
+        feature1:
+            title: 'Recipe Management'
+            description: 'Create, modify, and save your recipes with the list of ingredients and their quantities.'
+        feature2:
+            title: 'Optimize Your Pricing'
+            description: 'Ensure that the selling price of your recipes is competitive while maintaining a healthy profit margin.'
+        feature3:
+            title: 'Save Time'
+            description: 'No need to manually search and calculate the cost of each ingredient, our application does it for you.'
+        feature4:
+            title: 'Automatic Cost Calculation'
+            description: 'The total cost of the recipe is automatically calculated, allowing you to define an appropriate selling price.'
+'Password Reset Email Sent': '__Password Reset Email Sent'
+"Retour à l'accueil": "__Retour à l'accueil"
