@@ -19,3 +19,5 @@ body .bi::before, [class^=bi-]::before, [class*=" bi-"]::before {
 // Mazer SCSS
 @import "../mazer/scss/mazer";
 @import "../mazer/scss/themes/dark/app-dark";
+
+@import "./components/components.scss";
