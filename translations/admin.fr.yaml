@@ -1,0 +1,11 @@
+admin:
+  no_reccords: "aucun résultats"
+  edit: "modifier"
+  back_to_list: "retour"
+  save: "enregistrer"
+  ingredient:
+    name: "nom"
+    actions: "actions"
+    create_new: "ajouter un ingrédient"
+    index:
+      title: "Liste des ingrédients"

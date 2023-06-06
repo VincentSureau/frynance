@@ -1,0 +1,11 @@
+admin:
+  no_reccords: "no records found"
+  edit: "edit"
+  back_to_list: "back to list"
+  save: "save"
+  ingredient:
+    name: "name"
+    actions: "actions"
+    create_new: "add ingrédient"
+    index:
+      title: "Ingredients list"
