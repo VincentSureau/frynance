@@ -1,0 +1,52 @@
+{% trans_default_domain 'admin' %}
+
+{% extends 'back/layout.html.twig' %}
+
+{% block title %}Ingredient index{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">{{ 'admin.ingredient.index.title'|trans }}</h1>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <a class="btn btn-primary" href="{{ path('app_admin_ingredient_new') }}">{{ 'admin.ingredient.create_new'|trans }}</a>
+                        <div class="table-responsive">
+                            <table class="table table-lg">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>{{ 'admin.ingredient.name'|trans }}</th>
+                                        <th>{{ 'admin.ingredient.actions'|trans }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for ingredient in ingredients %}
+                                        <tr>
+                                            <td class="text-bold-500">{{ ingredient.id }}</td>
+                                            <td class="text-bold-500">{{ ingredient.name }}</td>
+                                            <td class="text-bold-500">
+                                                <a href="{{ path('app_admin_ingredient_edit', {'id': ingredient.id}) }}">{{ "admin.edit"|trans }}</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td class="text-bold-500" colspan="3">{{ "admin.no_reccords"|trans }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

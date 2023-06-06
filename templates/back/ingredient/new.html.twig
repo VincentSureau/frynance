@@ -1,0 +1,13 @@
+{% trans_default_domain 'admin' %}
+
+{% extends 'back/layout.html.twig' %}
+
+{% block title %}New Ingredient{% endblock %}
+
+{% block content %}
+    <h1>Create new Ingredient</h1>
+
+    {{ include('back/ingredient/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_ingredient_index') }}">{{ "admin.back_to_list"|trans }}</a>
+{% endblock %}
