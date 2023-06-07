@@ -16,26 +16,26 @@ admin:
         form:
             name: Name
     delete: Delete
-    delete_confirm: "Are you sure to delete this item ?"
+    delete_confirm: 'Are you sure to delete this item ?'
     user:
         create:
-            title: "Add new user"
+            title: 'Add new user'
         index:
-            title: "User list"
-        create_new: "Add user"
-        email: "Email"
-        roles: "Roles"
-        firstname: "Firstname"
-        lastname: "Lastname"
-        isverified: "Verified"
-        actions: "Actions"
+            title: 'User list'
+        create_new: 'Add user'
+        email: Email
+        roles: Roles
+        firstname: Firstname
+        lastname: Lastname
+        isverified: Verified
+        actions: Actions
         edit:
-            title: "Edit"
+            title: Edit
         form:
-            firstname: 'Firstname'
-            lastname: 'Lastname'
-            email: 'Email'
-            isverified: 'Verified'
+            firstname: Firstname
+            lastname: Lastname
+            email: Email
+            isverified: Verified
     'yes': 'Yes'
     'no': 'No'
-    view: "See"
+    view: See

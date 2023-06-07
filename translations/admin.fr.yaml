@@ -23,19 +23,19 @@ admin:
         index:
             title: 'Liste des utilisateurs'
         create_new: 'Ajouter un utilisateur'
-        email: 'Email'
-        roles: 'Roles'
-        firstname: 'Prénom'
-        lastname: 'Nom'
-        isverified: 'Vérifié'
-        actions: 'Actions'
+        email: Email
+        roles: Roles
+        firstname: Prénom
+        lastname: Nom
+        isverified: Vérifié
+        actions: Actions
         edit:
             title: "Modifier l'utilisateur"
         form:
-            firstname: 'Prénom'
-            lastname: 'Nom'
-            email: 'Email'
-            isverified: 'Vérifié'
-    yes: 'Oui'
-    no: 'Non'
-    view: 'Voir'
+            firstname: Prénom
+            lastname: Nom
+            email: Email
+            isverified: Vérifié
+    'yes': Oui
+    'no': Non
+    view: Voir
