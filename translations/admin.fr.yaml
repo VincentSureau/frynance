@@ -1,11 +1,11 @@
 admin:
     no_reccords: 'Aucun résultats'
-    edit: 'Modifier'
-    back_to_list: 'Retour'
-    save: 'Enregistrer'
+    edit: Modifier
+    back_to_list: Retour
+    save: Enregistrer
     ingredient:
-        name: 'Nom'
-        actions: 'Actions'
+        name: Nom
+        actions: Actions
         create_new: 'Ajouter un ingrédient'
         index:
             title: 'Liste des ingrédients'
@@ -14,5 +14,28 @@ admin:
         create:
             title: 'Ajouter un ingrédient'
         form:
-            name: 'Nom'
-    delete: 'Supprimer'
+            name: Nom
+    delete: Supprimer
+    delete_confirm: 'Êtes-vous sûr de vouloir supprimer cet élément?'
+    user:
+        create:
+            title: 'Ajouter un utilisateur'
+        index:
+            title: 'Liste des utilisateurs'
+        create_new: 'Ajouter un utilisateur'
+        email: 'Email'
+        roles: 'Roles'
+        firstname: 'Prénom'
+        lastname: 'Nom'
+        isverified: 'Vérifié'
+        actions: 'Actions'
+        edit:
+            title: "Modifier l'utilisateur"
+        form:
+            firstname: 'Prénom'
+            lastname: 'Nom'
+            email: 'Email'
+            isverified: 'Vérifié'
+    yes: 'Oui'
+    no: 'Non'
+    view: 'Voir'
