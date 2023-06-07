@@ -1,11 +1,11 @@
 admin:
     no_reccords: 'No records found'
-    edit: 'Edit'
+    edit: Edit
     back_to_list: 'Back to list'
-    save: 'Save'
+    save: Save
     ingredient:
-        name: 'Name'
-        actions: 'Actions'
+        name: Name
+        actions: Actions
         create_new: 'Add ingrédient'
         index:
             title: 'Ingredients list'
@@ -14,5 +14,28 @@ admin:
         create:
             title: 'Add ingrédient'
         form:
-            name: 'Name'
-    delete: 'Delete'
+            name: Name
+    delete: Delete
+    delete_confirm: "Are you sure to delete this item ?"
+    user:
+        create:
+            title: "Add new user"
+        index:
+            title: "User list"
+        create_new: "Add user"
+        email: "Email"
+        roles: "Roles"
+        firstname: "Firstname"
+        lastname: "Lastname"
+        isverified: "Verified"
+        actions: "Actions"
+        edit:
+            title: "Edit"
+        form:
+            firstname: 'Firstname'
+            lastname: 'Lastname'
+            email: 'Email'
+            isverified: 'Verified'
+    'yes': 'Yes'
+    'no': 'No'
+    view: "See"
