@@ -5,6 +5,7 @@
         <div class="mb-3">
             <label for="recipe-title">{{ "admin.recipe.title"|trans }}:</label>
             <input
+                name="recipe-title"
                 type="text"
                 data-model="recipe.title"
                 class="form-control {{ _errors.has('recipe.title') ? 'is-invalid' }}"
