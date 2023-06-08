@@ -82,7 +82,7 @@ class RecipeCreatorLineItemComponent
             'quantity' => $this->quantity,
             'price' => $this->price,
             'amount' => $this->amount,
-            'unit' => 'test',
+            'unit' => $this->unit,
             'totalPrice' => $this->totalPrice,
             'recipeIngredientId' => $this->recipeIngredient?->getId(),
         ]);

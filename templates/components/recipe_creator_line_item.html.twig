@@ -50,6 +50,25 @@
         {% endif %}
     </td>
     {# End quantity input #}
+    {# unit input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                type="text"
+                data-model="unit"
+                aria-label="unit"
+                class="form-control {{ _errors.has('unit') ? 'is-invalid' }}"
+            >
+            {% if _errors.has('unit') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('unit') }}
+                </div>
+            {% endif %}
+        {% else %}
+            {{ unit }}
+        {% endif %}
+    </td>
+    {# End unit input #}
     {# Unit price input #}
     <td class="align-top">
         {% if isEditing %}
