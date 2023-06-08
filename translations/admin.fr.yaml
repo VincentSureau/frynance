@@ -56,6 +56,7 @@ admin:
             unit_price: 'Prix unitaire'
             amount: 'Quantité recette'
             price: 'Prix recette'
+            unit: 'Unité'
         add_ingredient: 'Ajouter un ingrédient'
 'Check above for errors': 'Vérifier les erreurs'
 'Save all line items before continuing':

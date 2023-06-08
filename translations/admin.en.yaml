@@ -55,7 +55,7 @@ admin:
             quantity: 'Quantity'
             unit_price: 'Unit price'
             amount: 'Amount'
-            price: "Price"
+            unit: "Unit"
         add_ingredient: "Add ingredient"
 'Check above for errors': 'Check above for errors'
 'Save all line items before continuing':
