@@ -1,0 +1,132 @@
+{% trans_default_domain 'admin' %}
+
+<tr {{ attributes }}>
+    {# Ingredient input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <select
+                data-model="ingredient"
+                aria-label="Choose an Ingredient"
+                class="form-control {{ _errors.has('ingredient') ? 'is-invalid' }}"
+            >
+                <option value="" {{ not ingredient ? 'selected' }}>Choose an Ingredient</option>
+                {% for ingredientOption in ingredients %}
+                    <option
+                        value="{{ ingredientOption.id }}"
+                        {% if ingredientOption == ingredient %}selected{% endif %}
+                    >
+                        {{ ingredientOption.name }} {# ({{ ingredientOption.price|format_currency('EUR') }}) #}
+                    </option>
+                {% endfor %}
+            </select>
+            {% if _errors.has('ingredient') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('ingredient') }}
+                </div>
+            {% endif %}
+
+        {% else %}
+            {{ ingredient.name }}
+        {% endif %}
+    </td>
+    {# End ingredient input #}
+    {# Quantity input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                type="number"
+                step="0.01"
+                data-model="quantity"
+                aria-label="Quantity"
+                class="form-control {{ _errors.has('quantity') ? 'is-invalid' }}"
+            >
+            {% if _errors.has('quantity') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('quantity') }}
+                </div>
+            {% endif %}
+        {% else %}
+            {{ quantity }}
+        {% endif %}
+    </td>
+    {# End quantity input #}
+    {# Unit price input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                type="number"
+                step="0.01"
+                data-model="price"
+                aria-label="Price"
+                class="form-control {{ _errors.has('price') ? 'is-invalid' }}"
+            >
+            {% if _errors.has('price') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('price') }}
+                </div>
+            {% endif %}
+        {% else %}
+            {{ price|format_currency('EUR') }}
+        {% endif %}
+    </td>
+    {# End unit price input #}
+    {# Recipe quantity input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                type="number"
+                step="0.01"
+                data-model="amount"
+                aria-label="Amount"
+                class="form-control {{ _errors.has('amount') ? 'is-invalid' }}"
+            >
+            {% if _errors.has('amount') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('amount') }}
+                </div>
+            {% endif %}
+        {% else %}
+            {{ amount }}
+        {% endif %}
+    </td>
+    {# End recipe quantity input #}
+    {# Recipe price  #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                readonly
+                type="number"
+                data-model="totalPrice"
+                aria-label="Recipe Price"
+                class="form-control"
+            >        
+        {% else %}
+            {{ totalPrice|format_currency('EUR') }}            
+        {% endif %}
+    </td>
+    {# End recipe price #}
+    <td class="align-top text-end">
+        {% if isEditing %}
+            <button
+                data-action="live#action"
+                data-action-name="save"
+                class="btn btn-success btn-sm"
+                type="button"
+            ><i class="bi bi-send"></i> {{ 'admin.save'|trans }}</button>
+        {% else %}
+            <button
+                data-action="live#action"
+                data-action-name="edit"
+                class="btn btn-primary btn-sm"
+                type="button"
+            ><i class="bi bi-pencil"></i> {{ 'admin.edit'|trans }}</button>
+        {% endif %}
+
+        <button
+            data-action="live#emitUp"
+            data-event="removeLineItem(key={{ key }})"
+            class="btn btn-link text-danger btn-sm ml-2"
+            type="button"
+        ><i class="bi bi-x-lg"></i></button>
+    </td>
+</tr>
