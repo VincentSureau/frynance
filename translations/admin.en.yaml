@@ -36,16 +36,27 @@ admin:
             lastname: Lastname
             email: Email
             isverified: Verified
-    yes: 'Yes'
-    no: 'No'
+    'yes': 'Yes'
+    'no': 'No'
     view: See
     recipe:
         create:
-            title: "Add recipe"
+            title: 'Add recipe'
         index:
-            title: "Recipes List"
-        create_new: "Add recipe"
-        title: "Recipe"
-        actions: "Actions"
+            title: 'Recipes List'
+        create_new: 'Add recipe'
+        title: Recipe
+        actions: Actions
         edit:
-            title: "Edit recipe"
+            title: 'Edit recipe'
+        ingredients: 'Ingredients'
+        ingredient:
+            name: 'Ingredient'
+            quantity: 'Quantity'
+            unit_price: 'Unit price'
+            amount: 'Amount'
+            price: "Price"
+        add_ingredient: "Add ingredient"
+'Check above for errors': 'Check above for errors'
+'Save all line items before continuing':
+    '': 'Save all line items before continuing.'

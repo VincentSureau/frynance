@@ -36,16 +36,27 @@ admin:
             lastname: Nom
             email: Email
             isverified: Vérifié
-    yes: Oui
-    no: Non
+    'yes': Oui
+    'no': Non
     view: Voir
     recipe:
         create:
-            title: "Ajouter une recette"
+            title: 'Ajouter une recette'
         index:
-            title: "Liste des recettes"
-        create_new: "Ajouter une recette"
-        title: "Recette"
-        actions: "Actions"
+            title: 'Liste des recettes'
+        create_new: 'Ajouter une recette'
+        title: Recette
+        actions: Actions
         edit:
-            title: "Modifier la recette"
+            title: 'Modifier la recette'
+        ingredients: 'Ingrédients'
+        ingredient:
+            name: 'Ingrédient'
+            quantity: 'Quantité'
+            unit_price: 'Prix unitaire'
+            amount: 'Quantité recette'
+            price: 'Prix recette'
+        add_ingredient: 'Ajouter un ingrédient'
+'Check above for errors': 'Vérifier les erreurs'
+'Save all line items before continuing':
+    '': 'Enregistrer tous les ingrédients'
