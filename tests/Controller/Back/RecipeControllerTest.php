@@ -60,14 +60,12 @@ class RecipeControllerTest extends WebTestCase
 
     //     self::assertResponseStatusCodeSame(200);
 
-    //     $this->client->submitForm('Ajouter un ingrédient');
-
-    //     $this->client->followRedirects();
-
     //     $this->client->submitForm('Enregistrer', [
+    //         'recipe-title' => 'testing'
     //     ]);
 
-    //     self::assertResponseRedirects('/admin/recipe/');
+
+    //     self::assertResponseRedirects(sprintf('%s%s/edit', $this->path, $this->repository->findAll([],['id'=>'DESC'])[0]->getId()));
 
     //     self::assertSame($originalNumObjectsInRepository + 1, count($this->repository->findAll()));
     // }
