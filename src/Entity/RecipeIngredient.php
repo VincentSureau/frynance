@@ -40,6 +40,9 @@ class RecipeIngredient
     #[ORM\Column]
     private ?float $amount = null;
 
+    #[ORM\Column]
+    private ?float $totalPrice = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,6 +116,18 @@ class RecipeIngredient
     public function setAmount(float $amount): self
     {
         $this->amount = $amount;
+
+        return $this;
+    }
+
+    public function getTotalPrice(): ?float
+    {
+        return $this->totalPrice;
+    }
+
+    public function setTotalPrice(float $totalPrice): self
+    {
+        $this->totalPrice = $totalPrice;
 
         return $this;
     }
