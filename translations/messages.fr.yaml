@@ -26,3 +26,5 @@ navbar:
     logout: Déconnexion
     login: Connexion
     profile: 'Mon compte'
+
+"Recipe saved!": "Recette enregistrée !"
