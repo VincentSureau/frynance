@@ -63,7 +63,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
-        - name: executing remote ssh commands using password
+        - name: executing remote ssh commands using key
           uses: appleboy/ssh-action@v0.1.10
           with:
             host: ${{ secrets.HOST }}
