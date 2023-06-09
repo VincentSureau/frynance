@@ -56,9 +56,9 @@ jobs:
         cmd: install 
 
     - name: Build dev
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: encore dev
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: encore dev
 
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
