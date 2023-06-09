@@ -44,5 +44,21 @@ jobs:
     - name: Update Database
       run: |
         php bin/console doctrine:schema:update -f --complete --env=test
+
+    - name: Set Node.js 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+
+    - name: Run install
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: install 
+
+    - name: Build dev
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: encore dev
+
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
