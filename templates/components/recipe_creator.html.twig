@@ -1,0 +1,97 @@
+{% trans_default_domain 'admin' %}
+
+<div {{ attributes }}>
+    <form data-action="live#action" data-action-name="prevent|saveRecipe">
+        <div class="mb-3">
+            <label for="recipe-title">{{ "admin.recipe.title"|trans }}:</label>
+            <input
+                name="recipe-title"
+                type="text"
+                data-model="recipe.title"
+                class="form-control {{ _errors.has('recipe.title') ? 'is-invalid' }}"
+                id="recipe-title"
+            >
+            {% if _errors.has('invoice.customerName') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('invoice.customerName') }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <div class="card-header px-0">{{ "admin.recipe.ingredients"|trans }}</div>
+            <div class="card-body px-0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>{{ "admin.recipe.ingredient.name"|trans }}</th>
+                            <th>{{ "admin.recipe.ingredient.quantity"|trans }}</th>
+                            <th>{{ "admin.recipe.ingredient.unit"|trans }}</th>
+                            <th>{{ "admin.recipe.ingredient.unit_price"|trans }}</th>
+                            <th>{{ "admin.recipe.ingredient.amount"|trans }}</th>
+                            <th>{{ "admin.recipe.ingredient.price"|trans }}</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, line in lineItems %}
+                            {{ component('recipe_creator_line_item', {
+                                key: key,
+                                recipeIngredientId: line.recipeIngredientId,
+                                ingredientId: line.ingredientId,
+                                quantity: line.quantity,
+                                price: line.price,
+                                amount: line.amount,
+                                unit: line.unit,
+                                totalPrice: line.totalPrice,
+                                isEditing: line.isEditing,
+                            })
+                            }}
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <button
+                    data-action="live#action"
+                    data-action-name="addLineItem"
+                    class="btn btn-sm btn-secondary"
+                    type="button"
+                ><i class="bi bi-plus"></i> {{ 'admin.recipe.add_ingredient'|trans }}</button>
+            </div>
+        </div>
+
+        <div class="col-4 offset-8 mt-4">
+            <table class="table text-end">
+                <tbody>
+                    <tr>
+                        <th>Total:</th>
+                        <td>{{ this.total|format_currency('EUR') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button
+            class="btn btn-primary"
+            {{ areAnyLineItemsEditing ? 'disabled' : '' }}
+        >
+            <span data-loading="action(saveRecipe)|show" class="fa fa-spin fa-spinner"></span>
+            {% if savedSuccessfully %}
+                <i class="bi bi-check-circle"></i>
+            {% elseif saveFailed %}
+                <i class="bi bi-exclamation-circle text-danger"></i>
+            {% else %}
+                <i class="bi bi-send"></i>
+            {% endif %}
+            {{ 'admin.save'|trans }}
+        </button>
+        <div>
+            {% if saveFailed %}
+                <small class="text-danger">{{ 'Check above for errors'|trans }}</small>
+            {%  endif %}
+            {% if areAnyLineItemsEditing %}
+                <small class="text-secondary">{{ 'Save all line items before continuing.'|trans }}</small>
+            {% endif %}
+        </div>
+    </form>
+</div>

@@ -1,0 +1,8 @@
+{% trans_default_domain 'admin' %}
+
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('admin.save'|trans) }}</button>
+{{ form_end(form) }} #}
+
+{{ component('recipe_creator', { recipe: recipe }) }}

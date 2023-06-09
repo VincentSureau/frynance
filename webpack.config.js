@@ -74,6 +74,10 @@ Encore
         // only copy files matching this pattern
         //pattern: /\.(png|jpg|jpeg)$/
     })
+    .copyFiles({
+        from: './assets/fonts',
+        to: 'fonts/[path][name].[ext]',
+    })
 
 // uncomment if you use TypeScript
 //.enableTypeScriptLoader()

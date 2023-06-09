@@ -25,4 +25,6 @@ navbar:
     dashboard: Dahsboard
     logout: Déconnexion
     login: Connexion
-    profile: "Mon compte"
+    profile: 'Mon compte'
+
+"Recipe saved!": "Recette enregistrée !"
