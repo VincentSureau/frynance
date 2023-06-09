@@ -36,7 +36,7 @@
             <input
                 type="number"
                 step="0.01"
-                data-model="quantity"
+                data-model="debounce(1000)|quantity"
                 aria-label="Quantity"
                 class="form-control {{ _errors.has('quantity') ? 'is-invalid' }}"
             >
@@ -55,7 +55,7 @@
         {% if isEditing %}
             <input
                 type="text"
-                data-model="unit"
+                data-model="debounce(1000)|unit"
                 aria-label="unit"
                 class="form-control {{ _errors.has('unit') ? 'is-invalid' }}"
             >
@@ -75,7 +75,7 @@
             <input
                 type="number"
                 step="0.01"
-                data-model="price"
+                data-model="debounce(1000)|price"
                 aria-label="Price"
                 class="form-control {{ _errors.has('price') ? 'is-invalid' }}"
             >
@@ -95,7 +95,7 @@
             <input
                 type="number"
                 step="0.01"
-                data-model="amount"
+                data-model="debounce(1000)|amount"
                 aria-label="Amount"
                 class="form-control {{ _errors.has('amount') ? 'is-invalid' }}"
             >
