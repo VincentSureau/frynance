@@ -19,6 +19,7 @@ class UserFixtures extends Fixture
             ->setFirstname('firtname')
             ->setLastname('lastname')
             ->setEmail('name@example.com')
+            ->setRoles(['ROLE_ADMIN'])
             ->setPassword(
                 $this->userPasswordHasher->hashPassword(
                     $user,
