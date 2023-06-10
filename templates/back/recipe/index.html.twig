@@ -21,6 +21,8 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>{{ 'admin.recipe.title'|trans }}</th>
+                                        <th>{{ 'admin.recipe.preparation'|trans }}</th>
+                                        <th>{{ 'admin.recipe.price'|trans }}</th>
                                         <th>{{ 'admin.recipe.actions'|trans }}</th>
                                     </tr>
                                 </thead>
@@ -29,6 +31,8 @@
                                         <tr>
                                             <td class="text-bold-500">{{ recipe.id }}</td>
                                             <td class="text-bold-500">{{ recipe.title }}</td>
+                                            <td class="text-bold-500">{{ recipe.preparation }} min</td>
+                                            <td class="text-bold-500">{{ recipe.price|format_currency('EUR') }}</td>
                                             <td class="text-bold-500">
                                                 <a class="btn btn-primary btn-sm" href="{{ path('app_admin_recipe_edit', {'id': recipe.id}) }}"><i class="bi bi-pencil"></i> {{ "admin.edit"|trans }}</a>
                                             </td>
