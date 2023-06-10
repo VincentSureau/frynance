@@ -11,9 +11,24 @@
                 class="form-control {{ _errors.has('recipe.title') ? 'is-invalid' }}"
                 id="recipe-title"
             >
-            {% if _errors.has('invoice.customerName') %}
+            {% if _errors.has('invoice.recipe.title') %}
                 <div class="invalid-feedback">
-                    {{ _errors.get('invoice.customerName') }}
+                    {{ _errors.get('invoice.recipe.title') }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="recipe-preparation">{{ "admin.recipe.preparation"|trans }}:</label>
+            <input
+                name="recipe-preparation"
+                type="text"
+                data-model="recipe.preparation"
+                class="form-control {{ _errors.has('recipe.preparation') ? 'is-invalid' }}"
+                id="recipe-preparation"
+            >
+            {% if _errors.has('invoice.recipe.preparation') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('invoice.recipe.preparation') }}
                 </div>
             {% endif %}
         </div>
