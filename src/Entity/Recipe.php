@@ -36,9 +36,13 @@ class Recipe
     #[ORM\Column]
     private ?int $preparation = 0;
 
+    #[ORM\ManyToMany(targetEntity: Quote::class, mappedBy: 'recipes')]
+    private Collection $quotes;
+
     public function __construct()
     {
         $this->recipeIngredients = new ArrayCollection();
+        $this->quotes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -120,6 +124,33 @@ class Recipe
     public function setPreparation(int $preparation): self
     {
         $this->preparation = $preparation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Quote>
+     */
+    public function getQuotes(): Collection
+    {
+        return $this->quotes;
+    }
+
+    public function addQuote(Quote $quote): self
+    {
+        if (!$this->quotes->contains($quote)) {
+            $this->quotes->add($quote);
+            $quote->addRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuote(Quote $quote): self
+    {
+        if ($this->quotes->removeElement($quote)) {
+            $quote->removeRecipe($this);
+        }
 
         return $this;
     }
