@@ -28,6 +28,14 @@ class Recipe
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class, orphanRemoval: true)]
     private Collection $recipeIngredients;
 
+    #[Assert\PositiveOrZero]
+    #[ORM\Column]
+    private ?float $price = 0;
+
+    #[Assert\PositiveOrZero]
+    #[ORM\Column]
+    private ?int $preparation = 0;
+
     public function __construct()
     {
         $this->recipeIngredients = new ArrayCollection();
@@ -88,6 +96,30 @@ class Recipe
                 $recipeIngredient->setRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getPreparation(): ?int
+    {
+        return $this->preparation;
+    }
+
+    public function setPreparation(int $preparation): self
+    {
+        $this->preparation = $preparation;
 
         return $this;
     }
