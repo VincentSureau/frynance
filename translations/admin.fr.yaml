@@ -50,6 +50,8 @@ admin:
         edit:
             title: 'Modifier la recette'
         ingredients: 'Ingrédients'
+        preparation: 'Temps de préparation'
+        price: 'Prix'
         ingredient:
             name: 'Ingrédient'
             quantity: 'Quantité'
