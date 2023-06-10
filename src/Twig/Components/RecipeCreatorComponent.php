@@ -29,7 +29,7 @@ class RecipeCreatorComponent extends AbstractController
     use DefaultActionTrait;
     use ValidatableComponentTrait;
 
-    #[LiveProp(writable: ['title'])]
+    #[LiveProp(writable: ['title', 'preparation'])]
     #[Valid]
     public Recipe $recipe;
 
@@ -114,7 +114,10 @@ class RecipeCreatorComponent extends AbstractController
     public function saveRecipe(EntityManagerInterface $entityManager)
     {
         // assign connected user
-        $this->recipe->setUser($this->getUser());
+        $this->recipe
+            ->setUser($this->getUser())
+            ->setPrice(round($this->getTotal(), 2))
+        ;
 
         $this->saveFailed = true;
         $this->validate();

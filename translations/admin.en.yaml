@@ -50,6 +50,8 @@ admin:
         edit:
             title: 'Edit recipe'
         ingredients: 'Ingredients'
+        preparation: 'Preparation duration'
+        price: 'Price'
         ingredient:
             name: 'Ingredient'
             quantity: 'Quantity'

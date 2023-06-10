@@ -1,15 +1,16 @@
 {% trans_default_domain 'admin' %}
 
-<tr {{ attributes }}>
+<tr {{ attributes.add(stimulus_controller('recipe-ingredient')) }}>
     {# Ingredient input #}
     <td class="align-top">
         {% if isEditing %}
             <select
-                data-model="ingredient"
-                aria-label="Choose an Ingredient"
-                class="form-control {{ _errors.has('ingredient') ? 'is-invalid' }}"
+                data-model="on(change)|ingredient"
+                data-recipe-ingredient-target="ingredientInput"
+                aria-label="{{ "Choose an Ingredient"|trans }}"
+                class="form-control {{ _errors.has('ingredient') ? 'is-invalid' }} d-none"
             >
-                <option value="" {{ not ingredient ? 'selected' }}>Choose an Ingredient</option>
+                <option value="" {{ not ingredient ? 'selected' }} disabled>{{ "Choose an Ingredient"|trans }}</option>
                 {% for ingredientOption in ingredients %}
                     <option
                         value="{{ ingredientOption.id }}"
@@ -36,7 +37,7 @@
             <input
                 type="number"
                 step="0.01"
-                data-model="quantity"
+                data-model="debounce(1000)|quantity"
                 aria-label="Quantity"
                 class="form-control {{ _errors.has('quantity') ? 'is-invalid' }}"
             >
@@ -55,7 +56,7 @@
         {% if isEditing %}
             <input
                 type="text"
-                data-model="unit"
+                data-model="debounce(1000)|unit"
                 aria-label="unit"
                 class="form-control {{ _errors.has('unit') ? 'is-invalid' }}"
             >
@@ -75,7 +76,7 @@
             <input
                 type="number"
                 step="0.01"
-                data-model="price"
+                data-model="debounce(1000)|price"
                 aria-label="Price"
                 class="form-control {{ _errors.has('price') ? 'is-invalid' }}"
             >
@@ -95,7 +96,7 @@
             <input
                 type="number"
                 step="0.01"
-                data-model="amount"
+                data-model="debounce(1000)|amount"
                 aria-label="Amount"
                 class="form-control {{ _errors.has('amount') ? 'is-invalid' }}"
             >
