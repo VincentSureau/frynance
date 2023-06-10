@@ -27,7 +27,7 @@ class RecipeCreatorLineItemComponent
     #[LiveProp(writable: true)]
     public ?RecipeIngredient $recipeIngredient = null;
 
-    #[LiveProp(writable: true)]
+    #[LiveProp(writable: true, hydrateWith: 'hydrateIngredient')]
     #[Assert\NotNull]
     public ?Ingredient $ingredient = null;
 
@@ -56,6 +56,23 @@ class RecipeCreatorLineItemComponent
 
     #[LiveProp()]
     public bool $isEditing = false;
+
+    public function hydrateIngredient($data)
+    {
+        if(is_numeric($data)) {
+            return $this->ingredientRepository->find($data);  
+        } elseif (is_string($data)) {
+            $ingredientName = ucwords(trim(htmlspecialchars(strip_tags($data))));
+            $ingredient = $this->ingredientRepository->findOneByName($data);
+            if(empty($ingredient)) {
+                $ingredient = (new Ingredient())->setName($ingredientName);
+                $this->ingredientRepository->save($ingredient, true);
+            }
+            return $ingredient;
+        }
+
+        return $data;
+    }
 
     public function __construct(private IngredientRepository $ingredientRepository, private RecipeIngredientRepository $recipeIngredientRepository)
     {
