@@ -49,16 +49,29 @@ admin:
         actions: Actions
         edit:
             title: 'Edit recipe'
-        ingredients: 'Ingredients'
+        ingredients: Ingredients
         preparation: 'Preparation duration'
-        price: 'Price'
+        price: Price
         ingredient:
-            name: 'Ingredient'
-            quantity: 'Quantity'
+            name: Ingredient
+            quantity: Quantity
             unit_price: 'Unit price'
-            amount: 'Amount'
-            unit: "Unit"
-        add_ingredient: "Add ingredient"
+            amount: Amount
+            unit: Unit
+            price: 'Price'
+        add_ingredient: 'Add ingredient'
+    quote:
+        edit:
+            title: 'Edit quote'
+        create:
+            title: 'New quote'
+        index:
+            title: 'Quote list'
+        create_new: 'Create quote'
+        title: 'Title'
+        price: 'Price'
+        actions: 'Actions'
 'Check above for errors': 'Check above for errors'
 'Save all line items before continuing':
     '': 'Save all line items before continuing.'
+'Choose an Ingredient': 'Choose an Ingredient'

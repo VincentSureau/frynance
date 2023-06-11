@@ -49,17 +49,29 @@ admin:
         actions: Actions
         edit:
             title: 'Modifier la recette'
-        ingredients: 'Ingrédients'
+        ingredients: Ingrédients
         preparation: 'Temps de préparation'
-        price: 'Prix'
+        price: Prix
         ingredient:
-            name: 'Ingrédient'
-            quantity: 'Quantité'
+            name: Ingrédient
+            quantity: Quantité
             unit_price: 'Prix unitaire'
             amount: 'Quantité recette'
             price: 'Prix recette'
-            unit: 'Unité'
+            unit: Unité
         add_ingredient: 'Ajouter un ingrédient'
+    quote:
+        edit:
+            title: 'Modifier le devis'
+        create:
+            title: 'Créer un devis'
+        index:
+            title: 'Liste des devis'
+        create_new: 'Créer un devis'
+        title: 'Titre'
+        price: 'Prix'
+        actions: 'Actions'
 'Check above for errors': 'Vérifier les erreurs'
 'Save all line items before continuing':
     '': 'Enregistrer tous les ingrédients'
+'Choose an Ingredient': 'Ingrédient'
