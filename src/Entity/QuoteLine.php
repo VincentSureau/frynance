@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\QuoteLineRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: QuoteLineRepository::class)]
 class QuoteLine
@@ -15,6 +16,7 @@ class QuoteLine
 
     #[ORM\ManyToOne(inversedBy: 'quoteLines')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotNull]
     private ?Quote $quote = null;
 
     #[ORM\ManyToOne]
@@ -22,13 +24,16 @@ class QuoteLine
     private ?Recipe $recipe = null;
 
     #[ORM\Column]
-    private ?float $quantity = null;
+    #[Assert\PositiveOrZero()]
+    private ?float $quantity = 0;
 
     #[ORM\Column]
-    private ?float $price = null;
+    #[Assert\PositiveOrZero()]
+    private ?float $price = 0;
 
     #[ORM\Column]
-    private ?float $total = null;
+    #[Assert\PositiveOrZero()]
+    private ?float $total = 0;
 
     public function getId(): ?int
     {
