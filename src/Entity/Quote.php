@@ -20,9 +20,6 @@ class Quote
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\ManyToMany(targetEntity: Recipe::class, inversedBy: 'quotes')]
-    private Collection $recipes;
-
     #[ORM\Column]
     #[Assert\PositiveOrZero]
     private ?float $price = 0;
@@ -30,10 +27,16 @@ class Quote
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[ORM\OneToMany(mappedBy: 'quote', targetEntity: QuoteLine::class, orphanRemoval: true)]
+    private Collection $quoteLines;
+
+    #[ORM\Column]
+    private ?float $labourCost = null;
+
     public function __construct()
     {
-        $this->recipes = new ArrayCollection();
         $this->title =(new \DateTime('now'))->format('d-m-Y');
+        $this->quoteLines = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -49,30 +52,6 @@ class Quote
     public function setUser(?User $user): self
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Recipe>
-     */
-    public function getRecipes(): Collection
-    {
-        return $this->recipes;
-    }
-
-    public function addRecipe(Recipe $recipe): self
-    {
-        if (!$this->recipes->contains($recipe)) {
-            $this->recipes->add($recipe);
-        }
-
-        return $this;
-    }
-
-    public function removeRecipe(Recipe $recipe): self
-    {
-        $this->recipes->removeElement($recipe);
 
         return $this;
     }
@@ -97,6 +76,48 @@ class Quote
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, QuoteLine>
+     */
+    public function getQuoteLines(): Collection
+    {
+        return $this->quoteLines;
+    }
+
+    public function addQuoteLine(QuoteLine $quoteLine): self
+    {
+        if (!$this->quoteLines->contains($quoteLine)) {
+            $this->quoteLines->add($quoteLine);
+            $quoteLine->setQuote($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuoteLine(QuoteLine $quoteLine): self
+    {
+        if ($this->quoteLines->removeElement($quoteLine)) {
+            // set the owning side to null (unless already changed)
+            if ($quoteLine->getQuote() === $this) {
+                $quoteLine->setQuote(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getLabourCost(): ?float
+    {
+        return $this->labourCost;
+    }
+
+    public function setLabourCost(float $labourCost): self
+    {
+        $this->labourCost = $labourCost;
 
         return $this;
     }
