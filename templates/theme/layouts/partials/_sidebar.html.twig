@@ -17,19 +17,25 @@
                     <li class="sidebar-item {{ 'app_admin_ingredient_index'|is_active }}">
                         <a href="{{ path('app_admin_ingredient_index') }}" class="sidebar-link">
                             <i class="bi bi-egg-fill"></i>
-                            <span>Ingredients</span>
+                            <span>{{ 'sidebar.ingredients'|trans }}</span>
                         </a>
                     </li>
                     <li class="sidebar-item {{ 'app_admin_recipe_index'|is_active }}">
                         <a href="{{ path('app_admin_recipe_index') }}" class="sidebar-link">
                             <i class="bi bi-card-checklist"></i>
-                            <span>Recipes</span>
+                            <span>{{ 'sidebar.recipes'|trans }}</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ 'app_admin_quote_index'|is_active }}">
+                        <a href="{{ path('app_admin_quote_index') }}" class="sidebar-link">
+                            <i class="bi bi-file-ruled"></i>
+                            <span>{{ 'sidebar.quotes'|trans }}</span>
                         </a>
                     </li>
                     <li class="sidebar-item {{ 'app_admin_user_index'|is_active }}">
                         <a href="{{ path('app_admin_user_index') }}" class="sidebar-link">
                             <i class="bi bi-people-fill"></i>
-                            <span>Users</span>
+                            <span>{{ 'sidebar.users'|trans }}</span>
                         </a>
                     </li>
                 </ul>
