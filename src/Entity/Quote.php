@@ -25,13 +25,15 @@ class Quote
     private ?float $price = 0;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $title = null;
 
     #[ORM\OneToMany(mappedBy: 'quote', targetEntity: QuoteLine::class, orphanRemoval: true)]
     private Collection $quoteLines;
 
     #[ORM\Column]
-    private ?float $labourCost = null;
+    #[Assert\PositiveOrZero]
+    private ?float $labourCost = 0;
 
     public function __construct()
     {
