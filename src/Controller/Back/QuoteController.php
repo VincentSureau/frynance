@@ -25,18 +25,9 @@ class QuoteController extends AbstractController
     public function new(Request $request, QuoteRepository $quoteRepository): Response
     {
         $quote = new Quote();
-        $form = $this->createForm(QuoteType::class, $quote);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $quoteRepository->save($quote, true);
-
-            return $this->redirectToRoute('app_admin_quote_index', [], Response::HTTP_SEE_OTHER);
-        }
 
         return $this->render('back/quote/new.html.twig', [
-            'quote' => $quote,
-            'form' => $form,
+            'quote' => $quote
         ]);
     }
 
@@ -51,18 +42,8 @@ class QuoteController extends AbstractController
     #[Route('/{id}/edit', name: 'quote_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Quote $quote, QuoteRepository $quoteRepository): Response
     {
-        $form = $this->createForm(QuoteType::class, $quote);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $quoteRepository->save($quote, true);
-
-            return $this->redirectToRoute('app_admin_quote_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('back/quote/edit.html.twig', [
-            'quote' => $quote,
-            'form' => $form,
+        return $this->render('back/quote/new.html.twig', [
+            'quote' => $quote
         ]);
     }
 

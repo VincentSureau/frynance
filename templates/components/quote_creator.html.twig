@@ -1,3 +1,111 @@
+{% trans_default_domain 'admin' %}
+
 <div{{ attributes }}>
-    <!-- component html -->
+    <form data-action="live#action" data-action-name="prevent|saveQuote">
+        <div class="mb-3">
+            <label for="quote-title">{{ "admin.quote.title"|trans }}:</label>
+            <input
+                name="quote-title"
+                type="text"
+                data-model="quote.title"
+                class="form-control {{ _errors.has('quote.title') ? 'is-invalid' }}"
+                id="quote-title"
+            >
+            {% if _errors.has('invoice.quote.title') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('invoice.quote.title') }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="quote-labourCost">{{ "admin.quote.labourCost"|trans }}:</label>
+            <input
+                name="quote-labourCost"
+                type="text"
+                data-model="debounce(500)|quote.labourCost"
+                class="form-control {{ _errors.has('quote.labourCost') ? 'is-invalid' }}"
+                id="quote-labourCost"
+            >
+            {% if _errors.has('invoice.quote.labourCost') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('invoice.quote.labourCost') }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <div class="card-header px-0">{{ "admin.quote.recipes"|trans }}</div>
+            <div class="card-body px-0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="recipe-header">{{ "admin.recipe.title"|trans }}</th>
+                            <th>{{ "admin.recipe.preparation"|trans }}</th>
+                            <th>{{ "admin.recipe.price"|trans }}</th>
+                            <th>{{ "admin.quote_line.quantity"|trans }}</th>
+                            <th>{{ "admin.quote_line.total"|trans }}</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {# {% for key, line in lineItems %}
+                            {{ component('recipe_creator_line_item', {
+                                key: key,
+                                recipeIngredientId: line.recipeIngredientId,
+                                ingredientId: line.ingredientId,
+                                quantity: line.quantity,
+                                price: line.price,
+                                amount: line.amount,
+                                unit: line.unit,
+                                totalPrice: line.totalPrice,
+                                isEditing: line.isEditing,
+                            })
+                            }}
+                        {% endfor %} #}
+                    </tbody>
+                </table>
+
+                <button
+                    data-action="live#action"
+                    data-action-name="addLineItem"
+                    class="btn btn-sm btn-secondary"
+                    type="button"
+                ><i class="bi bi-plus"></i> {{ 'admin.recipe.add_recipe'|trans }}</button>
+            </div>
+        </div>
+
+        {# <div class="col-4 offset-8 mt-4">
+            <table class="table text-end">
+                <tbody>
+                    <tr>
+                        <th>Total:</th>
+                        <td>{{ this.total|format_currency('EUR') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> #}
+
+        {# <button
+            class="btn btn-primary"
+            {{ areAnyLineItemsEditing ? 'disabled' : '' }}
+        >
+            <span data-loading="action(saveRecipe)|show" class="fa fa-spin fa-spinner"></span>
+            {% if savedSuccessfully %}
+                <i class="bi bi-check-circle"></i>
+            {% elseif saveFailed %}
+                <i class="bi bi-exclamation-circle text-danger"></i>
+            {% else %}
+                <i class="bi bi-send"></i>
+            {% endif %}
+            {{ 'admin.save'|trans }}
+        </button>
+        <div>
+            {% if saveFailed %}
+                <small class="text-danger">{{ 'Check above for errors'|trans }}</small>
+            {%  endif %}
+            {% if areAnyLineItemsEditing %}
+                <small class="text-secondary">{{ 'Save all line items before continuing.'|trans }}</small>
+            {% endif %}
+        </div> #}
+    </form>
 </div>
