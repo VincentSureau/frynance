@@ -134,8 +134,8 @@ final class QuoteCreatorComponent extends AbstractController
             $quoteLine
                 ->setQuantity($lineItem['quantity'])
                 ->setPrice($lineItem['unit_price'])
-                ->setAmount($lineItem['preparation'])
-                ->setTotalPrice($lineItem['total_price'])
+                ->setPreparation($lineItem['preparation'])
+                ->setTotal($lineItem['total_price'])
                 ->setRecipe($recipe)
                 ->setQuote($this->quote)
             ;
@@ -186,7 +186,7 @@ final class QuoteCreatorComponent extends AbstractController
         return $quoteLineItems;
     }
 
-    #[LiveListener('line_item:save')]
+    #[LiveListener('quote_line_item:save')]
     public function saveLineItem(
         #[LiveArg] int $key,
         #[LiveArg] int $recipeId,
