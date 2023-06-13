@@ -1,0 +1,132 @@
+{% trans_default_domain 'admin' %}
+
+<tr {{ attributes.add(stimulus_controller('quote-line')) }}>
+    {# Recipe input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <select
+                data-model="on(change)|recipe"
+                data-quote-line-target="recipeInput"
+                aria-label="{{ "Choose a Recipe"|trans }}"
+                class="form-control {{ _errors.has('recipe') ? 'is-invalid' }} d-none"
+            >
+                <option value="" {{ not recipe ? 'selected' }} disabled>{{ "Choose an recipe"|trans }}</option>
+                {% for recipeOption in recipes %}
+                    <option
+                        value="{{ recipeOption.id }}"
+                        {% if recipeOption == recipe %}selected{% endif %}
+                    >
+                        {{ recipeOption.title }} {# ({{ recipeOption.price|format_currency('EUR') }}) #}
+                    </option>
+                {% endfor %}
+            </select>
+            {% if _errors.has('recipe') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('recipe') }}
+                </div>
+            {% endif %}
+
+        {% else %}
+            {{ recipe.title }}
+        {% endif %}
+    </td>
+    {# End recipe input #}
+    {# Quantity input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                type="number"
+                step="0.01"
+                data-model="debounce(1000)|quantity"
+                aria-label="Quantity"
+                class="form-control {{ _errors.has('quantity') ? 'is-invalid' }}"
+            >
+            {% if _errors.has('quantity') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('quantity') }}
+                </div>
+            {% endif %}
+        {% else %}
+            {{ quantity }}
+        {% endif %}
+    </td>
+    {# End quantity input #}
+    {# preparation input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                type="number"
+                data-model="debounce(1000)|preparation"
+                aria-label="preparation"
+                class="form-control {{ _errors.has('preparation') ? 'is-invalid' }}"
+            >
+            {% if _errors.has('preparation') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('preparation') }}
+                </div>
+            {% endif %}
+        {% else %}
+            {{ preparation }}
+        {% endif %}
+    </td>
+    {# End preparation input #}
+    {# Unit price input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                type="number"
+                step="0.01"
+                data-model="debounce(1000)|unit_price"
+                aria-label="Price"
+                class="form-control {{ _errors.has('unit_price') ? 'is-invalid' }}"
+            >
+            {% if _errors.has('unit_price') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('unit_price') }}
+                </div>
+            {% endif %}
+        {% else %}
+            {{ unit_price|format_currency('EUR') }}
+        {% endif %}
+    </td>
+    {# End unit price input #}
+    {# Total price  #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                readonly
+                type="number"
+                data-model="total_price"
+                aria-label="Total Price"
+                class="form-control"
+            >        
+        {% else %}
+            {{ total_price|format_currency('EUR') }}            
+        {% endif %}
+    </td>
+    {# End Total price #}
+    <td class="align-top text-end">
+        {% if isEditing %}
+            <button
+                data-action="live#action"
+                data-action-name="save"
+                class="btn btn-success btn-sm"
+                type="button"
+            ><i class="bi bi-send"></i> {{ 'admin.save'|trans }}</button>
+        {% else %}
+            <button
+                data-action="live#action"
+                data-action-name="edit"
+                class="btn btn-primary btn-sm"
+                type="button"
+            ><i class="bi bi-pencil"></i> {{ 'admin.edit'|trans }}</button>
+        {% endif %}
+
+        <button
+            data-action="live#emitUp"
+            data-event="removeQuoteLineItem(key={{ key }})"
+            class="btn btn-link text-danger btn-sm ml-2"
+            type="button"
+        ><i class="bi bi-x-lg"></i></button>
+    </td>
+</tr>

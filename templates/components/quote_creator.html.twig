@@ -48,33 +48,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {# {% for key, line in lineItems %}
-                            {{ component('recipe_creator_line_item', {
+                        {% for key, line in quoteLineItems %}
+                            {{ component('quote_creator_line_item', {
                                 key: key,
-                                recipeIngredientId: line.recipeIngredientId,
-                                ingredientId: line.ingredientId,
+                                quoteLineId: line.quoteLineId,
+                                recipeId: line.recipeId,
                                 quantity: line.quantity,
-                                price: line.price,
-                                amount: line.amount,
-                                unit: line.unit,
-                                totalPrice: line.totalPrice,
+                                unit_price: line.unit_price,
+                                preparation: line.preparation,
+                                total_price: line.total_price,
                                 isEditing: line.isEditing,
                             })
                             }}
-                        {% endfor %} #}
+                        {% endfor %}
                     </tbody>
                 </table>
 
                 <button
                     data-action="live#action"
-                    data-action-name="addLineItem"
+                    data-action-name="addQuoteLineItem"
                     class="btn btn-sm btn-secondary"
                     type="button"
                 ><i class="bi bi-plus"></i> {{ 'admin.recipe.add_recipe'|trans }}</button>
             </div>
         </div>
 
-        {# <div class="col-4 offset-8 mt-4">
+        <div class="col-4 offset-8 mt-4">
             <table class="table text-end">
                 <tbody>
                     <tr>
@@ -83,9 +82,9 @@
                     </tr>
                 </tbody>
             </table>
-        </div> #}
+        </div>
 
-        {# <button
+        <button
             class="btn btn-primary"
             {{ areAnyLineItemsEditing ? 'disabled' : '' }}
         >
@@ -106,6 +105,6 @@
             {% if areAnyLineItemsEditing %}
                 <small class="text-secondary">{{ 'Save all line items before continuing.'|trans }}</small>
             {% endif %}
-        </div> #}
+        </div>
     </form>
 </div>
