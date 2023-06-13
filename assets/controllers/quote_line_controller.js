@@ -9,27 +9,25 @@ require('select2')
 */
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
-    static targets = ['recipeInput']
+    static targets = ['recipeInput', 'preparationInput', 'priceInput']
 
     static choices = null;
 
     activateChoices(component) {
         if(component.valueStore.props.isEditing) {
-            this.choices = $(this.recipeInputTarget).select2({
-                tags: true
-            });
+            this.choices = $(this.recipeInputTarget).select2({});
 
             $(this.choices).on('select2:select', function(e) {
                 var data = e.params.data;
-                console.log(data);
-                component.valueStore.set('ingredient', data.id)
-                console.log(component)
+                component.set('recipe', data.id);
+                component.set('preparation', data.element?.dataset.preparation || 0);
+                component.set('unit_price', data.element?.dataset.price || 0);
+                component.render();
             })
         }
     }
 
     destroyChoices() {
-        console.log(this.choices);
         if(this.choices) {
             $(this.choices).select2('destroy');
             this.choices = null;

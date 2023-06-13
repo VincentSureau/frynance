@@ -23,7 +23,7 @@ final class QuoteCreatorComponent extends AbstractController
     use DefaultActionTrait;
     use ValidatableComponentTrait;
 
-    #[LiveProp(writable: ['title','price', 'labourCost'])]
+    #[LiveProp(writable: ['title', 'labourCost'])]
     public Quote $quote;
 
     #[LiveProp]
@@ -63,7 +63,7 @@ final class QuoteCreatorComponent extends AbstractController
     }
 
     #[ExposeInTemplate()]
-    public function getTotal(): float
+    public function getTotalRecipes(): float
     {
         $total = 0;
 
@@ -72,6 +72,30 @@ final class QuoteCreatorComponent extends AbstractController
         }
 
         return $total;
+    }
+
+    #[ExposeInTemplate()]
+    public function getTotalLabour(): float
+    {
+        $total = 0;
+
+        foreach ($this->quoteLineItems as $quotelineItem) {
+            $total += $quotelineItem['preparation'] * $quotelineItem['quantity'] * ($this->quote->getLabourCost() / 60) ;
+        }
+
+        return $total;
+    }
+
+    #[ExposeInTemplate()]
+    public function getTotalPrice(): float
+    {
+        return $this->getTotalRecipes() + $this->getTotalLabour();
+    }
+
+    #[ExposeInTemplate()]
+    public function getSellPrice(): float
+    {
+        return $this->getTotalPrice() * 2;
     }
 
     #[LiveListener('removeQuoteLineItem')]
@@ -104,7 +128,10 @@ final class QuoteCreatorComponent extends AbstractController
         // assign connected user
         $this->quote
             ->setUser($this->getUser())
-            ->setPrice(round($this->getTotal(), 2))
+            ->setTotalLabour(round($this->getTotalLabour(), 2))
+            ->setTotalRecipe(round($this->getTotalRecipes(), 2))
+            ->setTotalPrice(round($this->getTotalPrice(), 2))
+            ->setSellPrice(round($this->getSellPrice(), 2))
         ;
 
         $this->saveFailed = true;

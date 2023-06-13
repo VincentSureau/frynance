@@ -21,15 +21,13 @@ export default class extends Controller {
 
             $(this.choices).on('select2:select', function(e) {
                 var data = e.params.data;
-                console.log(data);
-                component.valueStore.set('ingredient', data.id)
-                console.log(component)
+                component.set('ingredient', data.id)
+                component.render();
             })
         }
     }
 
     destroyChoices() {
-        console.log(this.choices);
         if(this.choices) {
             $(this.choices).select2('destroy');
             this.choices = null;

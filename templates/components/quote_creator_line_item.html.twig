@@ -10,9 +10,11 @@
                 aria-label="{{ "Choose a Recipe"|trans }}"
                 class="form-control {{ _errors.has('recipe') ? 'is-invalid' }} d-none"
             >
-                <option value="" {{ not recipe ? 'selected' }} disabled>{{ "Choose an recipe"|trans }}</option>
+                <option value="" {{ not recipe ? 'selected' }}>{{ "Choose an recipe"|trans }}</option>
                 {% for recipeOption in recipes %}
                     <option
+                        data-price="{{ recipeOption.price }}"
+                        data-preparation="{{ recipeOption.preparation }}"
                         value="{{ recipeOption.id }}"
                         {% if recipeOption == recipe %}selected{% endif %}
                     >
@@ -31,6 +33,47 @@
         {% endif %}
     </td>
     {# End recipe input #}
+    {# preparation input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                data-quote-line-target="preparationInput"
+                type="number"
+                data-model="debounce(1000)|preparation"
+                aria-label="preparation"
+                class="form-control {{ _errors.has('preparation') ? 'is-invalid' }}"
+            >
+            {% if _errors.has('preparation') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('preparation') }}
+                </div>
+            {% endif %}
+        {% else %}
+            {{ preparation }}
+        {% endif %}
+    </td>
+    {# End preparation input #}
+    {# Unit price input #}
+    <td class="align-top">
+        {% if isEditing %}
+            <input
+                data-quote-line-target="priceInput"
+                type="number"
+                step="0.01"
+                data-model="debounce(1000)|unit_price"
+                aria-label="Price"
+                class="form-control {{ _errors.has('unit_price') ? 'is-invalid' }}"
+            >
+            {% if _errors.has('unit_price') %}
+                <div class="invalid-feedback">
+                    {{ _errors.get('unit_price') }}
+                </div>
+            {% endif %}
+        {% else %}
+            {{ unit_price|format_currency('EUR') }}
+        {% endif %}
+    </td>
+    {# End unit price input #}
     {# Quantity input #}
     <td class="align-top">
         {% if isEditing %}
@@ -51,58 +94,9 @@
         {% endif %}
     </td>
     {# End quantity input #}
-    {# preparation input #}
-    <td class="align-top">
-        {% if isEditing %}
-            <input
-                type="number"
-                data-model="debounce(1000)|preparation"
-                aria-label="preparation"
-                class="form-control {{ _errors.has('preparation') ? 'is-invalid' }}"
-            >
-            {% if _errors.has('preparation') %}
-                <div class="invalid-feedback">
-                    {{ _errors.get('preparation') }}
-                </div>
-            {% endif %}
-        {% else %}
-            {{ preparation }}
-        {% endif %}
-    </td>
-    {# End preparation input #}
-    {# Unit price input #}
-    <td class="align-top">
-        {% if isEditing %}
-            <input
-                type="number"
-                step="0.01"
-                data-model="debounce(1000)|unit_price"
-                aria-label="Price"
-                class="form-control {{ _errors.has('unit_price') ? 'is-invalid' }}"
-            >
-            {% if _errors.has('unit_price') %}
-                <div class="invalid-feedback">
-                    {{ _errors.get('unit_price') }}
-                </div>
-            {% endif %}
-        {% else %}
-            {{ unit_price|format_currency('EUR') }}
-        {% endif %}
-    </td>
-    {# End unit price input #}
     {# Total price  #}
     <td class="align-top">
-        {% if isEditing %}
-            <input
-                readonly
-                type="number"
-                data-model="total_price"
-                aria-label="Total Price"
-                class="form-control"
-            >        
-        {% else %}
-            {{ total_price|format_currency('EUR') }}            
-        {% endif %}
+        {{ totalPrice|format_currency('EUR') }}            
     </td>
     {# End Total price #}
     <td class="align-top text-end">

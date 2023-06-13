@@ -77,8 +77,20 @@
             <table class="table text-end">
                 <tbody>
                     <tr>
-                        <th>Total:</th>
-                        <td>{{ this.total|format_currency('EUR') }}</td>
+                        <th>{{ 'admin.quote.totalRecipes'|trans() }}:</th>
+                        <td>{{ this.totalRecipes|format_currency('EUR') }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'admin.quote.totalLabour'|trans() }}:</th>
+                        <td>{{ this.totalLabour|format_currency('EUR') }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'admin.quote.totalPrice'|trans() }}:</th>
+                        <td>{{ this.totalPrice|format_currency('EUR') }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'admin.quote.SellPrice'|trans() }}:</th>
+                        <td>{{ this.sellPrice|format_currency('EUR') }}</td>
                     </tr>
                 </tbody>
             </table>

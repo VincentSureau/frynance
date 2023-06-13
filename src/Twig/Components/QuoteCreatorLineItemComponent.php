@@ -46,7 +46,7 @@ class QuoteCreatorLineItemComponent
     #[Assert\Positive]
     public float $unit_price = 1;
 
-    #[LiveProp(writable: true)]
+    #[LiveProp(writable: false)]
     #[Assert\PositiveOrZero]
     public float $total_price = 0;
 
@@ -78,7 +78,7 @@ class QuoteCreatorLineItemComponent
             'quantity' => $this->quantity,
             'unit_price' => $this->unit_price,
             'preparation' => $this->preparation,
-            'total_price' => $this->total_price,
+            'total_price' => $this->getTotalPrice(),
             'quoteLineId' => $this->quoteLine?->getId(),
         ]);
 
@@ -97,6 +97,7 @@ class QuoteCreatorLineItemComponent
         return $this->recipeRepository->findAll();
     }
 
+    #[ExposeInTemplate]
     public function getTotalPrice()
     {
         try {
