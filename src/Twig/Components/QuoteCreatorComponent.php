@@ -45,6 +45,7 @@ final class QuoteCreatorComponent extends AbstractController
     public function mount(Quote $quote): void
     {
         $this->quote = $quote;
+        $this->quoteLineItems = $this->populateQuoteLineItems($quote);
     }
 
     #[LiveAction]
@@ -179,7 +180,7 @@ final class QuoteCreatorComponent extends AbstractController
                 'preparation' => $item->getRecipe()->getPreparation() * $item->getQuantity(),
                 'unit_price' => $item->getPrice(),
                 'total_price' => $item->getTotal(),
-                'isEditing' => true,
+                'isEditing' => false,
             ];
         }
 
