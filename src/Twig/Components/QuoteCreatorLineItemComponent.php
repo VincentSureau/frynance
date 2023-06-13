@@ -71,12 +71,12 @@ class QuoteCreatorLineItemComponent
     public function save(LiveResponder $responder): void
     {
         $this->validate();
-        $responder->emitUp('line_item:save', [
+
+        $responder->emitUp('quote_line_item:save', [
             'key' => $this->key,
             'recipeId' => $this->recipe->getId(),
             'quantity' => $this->quantity,
             'unit_price' => $this->unit_price,
-            'quantity' => $this->quantity,
             'preparation' => $this->preparation,
             'total_price' => $this->total_price,
             'quoteLineId' => $this->quoteLine?->getId(),
