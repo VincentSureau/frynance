@@ -35,6 +35,10 @@ class QuoteLine
     #[Assert\PositiveOrZero()]
     private ?float $total = 0;
 
+    #[ORM\Column]
+    #[Assert\PositiveOrZero()]
+    private ?float $preparation = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -96,6 +100,18 @@ class QuoteLine
     public function setTotal(float $total): self
     {
         $this->total = $total;
+
+        return $this;
+    }
+
+    public function getPreparation(): ?float
+    {
+        return $this->preparation;
+    }
+
+    public function setPreparation(float $preparation): self
+    {
+        $this->preparation = $preparation;
 
         return $this;
     }
