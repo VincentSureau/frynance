@@ -58,8 +58,9 @@ admin:
             unit_price: 'Unit price'
             amount: Amount
             unit: Unit
-            price: 'Price'
+            price: Price
         add_ingredient: 'Add ingredient'
+        add_recipe: 'Add recipe'
     quote:
         edit:
             title: 'Edit quote'
@@ -68,10 +69,21 @@ admin:
         index:
             title: 'Quote list'
         create_new: 'Create quote'
-        title: 'Title'
-        price: 'Price'
-        actions: 'Actions'
+        title: Title
+        price: Price
+        actions: Actions
+        labourCost: 'Labour cost (per hour)'
+        recipes: 'Recipes'
+        totalRecipes: 'Total recipes'
+        totalLabour: 'Total labour'
+        totalPrice: 'Total price'
+        SellPrice: 'Sell price'
+    quote_line:
+        quantity: 'Quantity'
+        total: 'Total'
 'Check above for errors': 'Check above for errors'
 'Save all line items before continuing':
     '': 'Save all line items before continuing.'
 'Choose an Ingredient': 'Choose an Ingredient'
+'Choose a Recipe': 'Choose a Recipe'
+'Choose an recipe': 'Choose an recipe'

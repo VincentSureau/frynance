@@ -28,7 +28,7 @@ navbar:
     profile: 'Mon compte'
 'Recipe saved!': 'Recette enregistrée !'
 sidebar:
-    ingredients: 'Ingredients'
-    recipes: 'Recettes'
-    quotes: 'Devis'
-    users: 'Utilisateurs'
+    ingredients: Ingredients
+    recipes: Recettes
+    quotes: Devis
+    users: Utilisateurs

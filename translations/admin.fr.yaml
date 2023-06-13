@@ -60,6 +60,7 @@ admin:
             price: 'Prix recette'
             unit: Unité
         add_ingredient: 'Ajouter un ingrédient'
+        add_recipe: 'Ajouter une recette'
     quote:
         edit:
             title: 'Modifier le devis'
@@ -68,10 +69,21 @@ admin:
         index:
             title: 'Liste des devis'
         create_new: 'Créer un devis'
-        title: 'Titre'
-        price: 'Prix'
-        actions: 'Actions'
+        title: Titre
+        price: Prix
+        actions: Actions
+        labourCost: "Coût main d'oeuvre / h"
+        recipes: 'Coûts ingrédients'
+        totalRecipes: 'Coût total ingrédient'
+        totalLabour: "Coût total main d'oeuvre"
+        totalPrice: 'Coût total'
+        SellPrice: 'Prix de vente conseillé'
+    quote_line:
+        quantity: 'Quantité'
+        total: 'Total'
 'Check above for errors': 'Vérifier les erreurs'
 'Save all line items before continuing':
     '': 'Enregistrer tous les ingrédients'
-'Choose an Ingredient': 'Ingrédient'
+'Choose an Ingredient': Ingrédient
+'Choose a Recipe': 'Recette'
+'Choose an recipe': 'Recette'

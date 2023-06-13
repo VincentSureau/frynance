@@ -20,7 +20,7 @@ home:
             title: 'Automatic Cost Calculation'
             description: 'The total cost of the recipe is automatically calculated, allowing you to define an appropriate selling price.'
 'Password Reset Email Sent': 'Password Reset Email Sent'
-"Retour à l'accueil": "Back home"
+"Retour à l'accueil": 'Back home'
 navbar:
     dashboard: Dashboard
     logout: Logout
@@ -28,7 +28,7 @@ navbar:
     profile: Profile
 'Recipe saved!': 'Recipe saved!'
 sidebar:
-    ingredients: 'Ingredients'
-    recipes: 'Recettes'
-    quotes: 'Quotes'
-    users: 'Users'
+    ingredients: Ingredients
+    recipes: Recettes
+    quotes: Quotes
+    users: Users
