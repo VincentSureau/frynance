@@ -29,7 +29,7 @@ class Quote
 
     #[ORM\Column]
     #[Assert\PositiveOrZero]
-    private ?float $labourCost = 0;
+    private ?float $labourCost = 11.52;
 
     #[ORM\Column]
     #[Assert\PositiveOrZero]
