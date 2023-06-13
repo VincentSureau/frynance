@@ -20,10 +20,6 @@ class Quote
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\Column]
-    #[Assert\PositiveOrZero]
-    private ?float $price = 0;
-
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank]
     private ?string $title = null;
@@ -34,6 +30,22 @@ class Quote
     #[ORM\Column]
     #[Assert\PositiveOrZero]
     private ?float $labourCost = 0;
+
+    #[ORM\Column]
+    #[Assert\PositiveOrZero]
+    private ?float $totalRecipe = 0;
+
+    #[ORM\Column]
+    #[Assert\PositiveOrZero]
+    private ?float $totalLabour = 0;
+
+    #[ORM\Column]
+    #[Assert\PositiveOrZero]
+    private ?float $totalPrice = 0;
+
+    #[ORM\Column]
+    #[Assert\PositiveOrZero]
+    private ?float $sellPrice = 0;
 
     public function __construct()
     {
@@ -54,18 +66,6 @@ class Quote
     public function setUser(?User $user): self
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    public function getPrice(): ?float
-    {
-        return $this->price;
-    }
-
-    public function setPrice(float $price): self
-    {
-        $this->price = $price;
 
         return $this;
     }
@@ -120,6 +120,54 @@ class Quote
     public function setLabourCost(float $labourCost): self
     {
         $this->labourCost = $labourCost;
+
+        return $this;
+    }
+
+    public function getTotalRecipe(): ?float
+    {
+        return $this->totalRecipe;
+    }
+
+    public function setTotalRecipe(float $totalRecipe): self
+    {
+        $this->totalRecipe = $totalRecipe;
+
+        return $this;
+    }
+
+    public function getTotalLabour(): ?float
+    {
+        return $this->totalLabour;
+    }
+
+    public function setTotalLabour(float $totalLabour): self
+    {
+        $this->totalLabour = $totalLabour;
+
+        return $this;
+    }
+
+    public function getTotalPrice(): ?float
+    {
+        return $this->totalPrice;
+    }
+
+    public function setTotalPrice(float $totalPrice): self
+    {
+        $this->totalPrice = $totalPrice;
+
+        return $this;
+    }
+
+    public function getSellPrice(): ?float
+    {
+        return $this->sellPrice;
+    }
+
+    public function setSellPrice(float $sellPrice): self
+    {
+        $this->sellPrice = $sellPrice;
 
         return $this;
     }
