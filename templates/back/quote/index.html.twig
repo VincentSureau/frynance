@@ -30,7 +30,7 @@
                                         <tr>
                                             <td class="text-bold-500">{{ quote.id }}</td>
                                             <td>{{ quote.title }}</td>
-                                            <td>{{ quote.price }}</td>
+                                            <td>{{ quote.totalPrice }}</td>
                                             <td class="text-bold-500">
                                                 <a class="btn btn-primary btn-sm" href="{{ path('app_admin_quote_edit', {'id': quote.id}) }}"><i class="bi bi-pencil"></i> {{ "admin.edit"|trans }}</a>
                                             </td>
