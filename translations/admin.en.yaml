@@ -77,7 +77,7 @@ admin:
         totalRecipes: 'Total recipes'
         totalLabour: 'Total labour'
         totalPrice: 'Total price'
-        SellPrice: 'Sell price'
+        sellPrice: 'Sell price'
     quote_line:
         quantity: 'Quantity'
         total: 'Total'

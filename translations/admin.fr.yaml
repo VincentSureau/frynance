@@ -77,7 +77,7 @@ admin:
         totalRecipes: 'Coût total ingrédient'
         totalLabour: "Coût total main d'oeuvre"
         totalPrice: 'Coût total'
-        SellPrice: 'Prix de vente conseillé'
+        sellPrice: 'Prix de vente conseillé'
     quote_line:
         quantity: 'Quantité'
         total: 'Total'
