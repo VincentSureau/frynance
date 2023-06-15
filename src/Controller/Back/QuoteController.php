@@ -31,14 +31,6 @@ class QuoteController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'quote_show', methods: ['GET'])]
-    public function show(Quote $quote): Response
-    {
-        return $this->render('back/quote/show.html.twig', [
-            'quote' => $quote,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'quote_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Quote $quote, QuoteRepository $quoteRepository): Response
     {
