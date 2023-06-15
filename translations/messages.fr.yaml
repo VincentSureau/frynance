@@ -19,12 +19,16 @@ home:
         feature4:
             title: 'Calcul Automatique du Coût'
             description: 'Le coût total de la recette est automatiquement calculé, permettant de définir un prix de vente approprié.'
-'Password Reset Email Sent': '__Password Reset Email Sent'
-"Retour à l'accueil": "__Retour à l'accueil"
+'Password Reset Email Sent': 'Un email de réinitialisation du mot de passe a été envoyé'
+"Retour à l'accueil": "Retour à l'accueil"
 navbar:
     dashboard: Dahsboard
     logout: Déconnexion
     login: Connexion
     profile: 'Mon compte'
-
-"Recipe saved!": "Recette enregistrée !"
+'Recipe saved!': 'Recette enregistrée !'
+sidebar:
+    ingredients: Ingredients
+    recipes: Recettes
+    quotes: Devis
+    users: Utilisateurs

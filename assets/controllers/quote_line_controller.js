@@ -9,19 +9,19 @@ require('select2')
 */
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
-    static targets = ['ingredientInput']
+    static targets = ['recipeInput', 'preparationInput', 'priceInput']
 
     static choices = null;
 
     activateChoices(component) {
         if(component.valueStore.props.isEditing) {
-            this.choices = $(this.ingredientInputTarget).select2({
-                tags: true
-            });
+            this.choices = $(this.recipeInputTarget).select2({});
 
             $(this.choices).on('select2:select', function(e) {
                 var data = e.params.data;
-                component.set('ingredient', data.id)
+                component.set('recipe', data.id);
+                component.set('preparation', data.element?.dataset.preparation || 0);
+                component.set('unit_price', data.element?.dataset.price || 0);
                 component.render();
             })
         }
