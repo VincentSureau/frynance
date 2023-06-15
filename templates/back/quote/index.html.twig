@@ -21,7 +21,10 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>{{ 'admin.quote.title'|trans }}</th>
-                                        <th>{{ 'admin.quote.price'|trans }}</th>
+                                        <th>{{ 'admin.quote.totalRecipes'|trans }}</th>
+                                        <th>{{ 'admin.quote.totalLabour'|trans }}</th>
+                                        <th>{{ 'admin.quote.totalPrice'|trans }}</th>
+                                        <th>{{ 'admin.quote.sellPrice'|trans }}</th>
                                         <th>{{ 'admin.quote.actions'|trans }}</th>
                                     </tr>
                                 </thead>
@@ -30,7 +33,10 @@
                                         <tr>
                                             <td class="text-bold-500">{{ quote.id }}</td>
                                             <td>{{ quote.title }}</td>
-                                            <td>{{ quote.totalPrice }}</td>
+                                            <td>{{ quote.totalRecipe|format_currency('EUR') }}</td>
+                                            <td>{{ quote.totalLabour|format_currency('EUR') }}</td>
+                                            <td>{{ quote.totalPrice|format_currency('EUR') }}</td>
+                                            <td>{{ quote.sellPrice|format_currency('EUR') }}</td>
                                             <td class="text-bold-500">
                                                 <a class="btn btn-primary btn-sm" href="{{ path('app_admin_quote_edit', {'id': quote.id}) }}"><i class="bi bi-pencil"></i> {{ "admin.edit"|trans }}</a>
                                             </td>
