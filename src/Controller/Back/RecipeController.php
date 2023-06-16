@@ -5,11 +5,14 @@ namespace App\Controller\Back;
 use App\Entity\Recipe;
 use App\Form\RecipeType;
 use App\Repository\RecipeRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\ExpressionLanguage\Expression;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[IsGranted(new Expression('is_granted("ROLE_USER")'))]
 #[Route('/recipe')]
 class RecipeController extends AbstractController
 {
@@ -41,6 +44,13 @@ class RecipeController extends AbstractController
         ]);
     }
 
+    #[IsGranted(
+        attribute: new Expression('user === subject["author"] or is_granted("ROLE_ADMIN")'),
+        subject: [
+            'author' => new Expression('args["recipe"].getUser()'),
+            'recipe',
+        ],
+    )]
     #[Route('/{id}', name: 'recipe_show', methods: ['GET'])]
     public function show(Recipe $recipe): Response
     {
@@ -49,6 +59,13 @@ class RecipeController extends AbstractController
         ]);
     }
 
+    #[IsGranted(
+        attribute: new Expression('user === subject["author"] or is_granted("ROLE_ADMIN")'),
+        subject: [
+            'author' => new Expression('args["recipe"].getUser()'),
+            'recipe',
+        ],
+    )]
     #[Route('/{id}/edit', name: 'recipe_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Recipe $recipe, RecipeRepository $recipeRepository): Response
     {

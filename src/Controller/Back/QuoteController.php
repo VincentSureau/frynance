@@ -5,11 +5,14 @@ namespace App\Controller\Back;
 use App\Entity\Quote;
 use App\Form\QuoteType;
 use App\Repository\QuoteRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\ExpressionLanguage\Expression;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[IsGranted(new Expression('is_granted("ROLE_USER")'))]
 #[Route('/quote')]
 class QuoteController extends AbstractController
 {
@@ -31,6 +34,13 @@ class QuoteController extends AbstractController
         ]);
     }
 
+    #[IsGranted(
+        attribute: new Expression('user === subject["author"] or is_granted("ROLE_ADMIN")'),
+        subject: [
+            'author' => new Expression('args["quote"].getUser()'),
+            'quote',
+        ],
+    )]
     #[Route('/{id}/edit', name: 'quote_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Quote $quote, QuoteRepository $quoteRepository): Response
     {
@@ -39,6 +49,13 @@ class QuoteController extends AbstractController
         ]);
     }
 
+    #[IsGranted(
+        attribute: new Expression('user === subject["author"] or is_granted("ROLE_ADMIN")'),
+        subject: [
+            'author' => new Expression('args["quote"].getUser()'),
+            'quote',
+        ],
+    )]
     #[Route('/{id}', name: 'quote_delete', methods: ['POST'])]
     public function delete(Request $request, Quote $quote, QuoteRepository $quoteRepository): Response
     {
