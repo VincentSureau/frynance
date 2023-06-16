@@ -6,6 +6,7 @@ use App\Entity\Recipe;
 use App\Entity\QuoteLine;
 use App\Repository\RecipeRepository;
 use App\Repository\QuoteLineRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\UX\LiveComponent\LiveResponder;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
@@ -16,7 +17,7 @@ use Symfony\UX\LiveComponent\ValidatableComponentTrait;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 #[AsLiveComponent('quote_creator_line_item')]
-class QuoteCreatorLineItemComponent
+class QuoteCreatorLineItemComponent extends AbstractController
 {
     use DefaultActionTrait;
     use ValidatableComponentTrait;
@@ -94,7 +95,7 @@ class QuoteCreatorLineItemComponent
     #[ExposeInTemplate]
     public function getRecipes(): array
     {
-        return $this->recipeRepository->findAll();
+        return $this->recipeRepository->findByUser($this->getUser());
     }
 
     #[ExposeInTemplate]
