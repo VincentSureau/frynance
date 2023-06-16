@@ -29,7 +29,7 @@ class QuoteController extends AbstractController
     }
 
     #[Route('/new', name: 'quote_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, QuoteRepository $quoteRepository): Response
+    public function new(): Response
     {
         $quote = new Quote();
 
@@ -46,7 +46,7 @@ class QuoteController extends AbstractController
         ],
     )]
     #[Route('/{id}/edit', name: 'quote_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Quote $quote, QuoteRepository $quoteRepository): Response
+    public function edit(Quote $quote): Response
     {
         return $this->render('back/quote/edit.html.twig', [
             'quote' => $quote
