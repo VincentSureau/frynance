@@ -29,22 +29,13 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/new', name: 'recipe_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, RecipeRepository $recipeRepository): Response
+    public function new(): Response
     {
         $recipe = new Recipe();
         $recipe->setUser($this->getUser());
-        $form = $this->createForm(RecipeType::class, $recipe);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $recipeRepository->save($recipe, true);
-
-            return $this->redirectToRoute('app_admin_recipe_index', [], Response::HTTP_SEE_OTHER);
-        }
 
         return $this->render('back/recipe/new.html.twig', [
             'recipe' => $recipe,
-            'form' => $form,
         ]);
     }
 
@@ -71,20 +62,10 @@ class RecipeController extends AbstractController
         ],
     )]
     #[Route('/{id}/edit', name: 'recipe_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Recipe $recipe, RecipeRepository $recipeRepository): Response
+    public function edit(Recipe $recipe): Response
     {
-        $form = $this->createForm(RecipeType::class, $recipe);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $recipeRepository->save($recipe, true);
-
-            return $this->redirectToRoute('app_admin_recipe_index', [], Response::HTTP_SEE_OTHER);
-        }
-
         return $this->render('back/recipe/edit.html.twig', [
             'recipe' => $recipe,
-            'form' => $form,
         ]);
     }
 
