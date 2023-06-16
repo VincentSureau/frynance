@@ -19,8 +19,12 @@ class RecipeController extends AbstractController
     #[Route('/', name: 'recipe_index', methods: ['GET'])]
     public function index(RecipeRepository $recipeRepository): Response
     {
+        $recipes = $this->isGranted('ROLE_ADMIN') ? 
+            $recipeRepository->findAll() : 
+            $recipeRepository->findByUser($this->getUser())
+        ;
         return $this->render('back/recipe/index.html.twig', [
-            'recipes' => $recipeRepository->findAll(),
+            'recipes' => $recipes,
         ]);
     }
 
