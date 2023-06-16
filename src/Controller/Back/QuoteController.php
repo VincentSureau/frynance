@@ -19,8 +19,12 @@ class QuoteController extends AbstractController
     #[Route('/', name: 'quote_index', methods: ['GET'])]
     public function index(QuoteRepository $quoteRepository): Response
     {
+        $quotes = $this->isGranted('ROLE_ADMIN') ? 
+            $quoteRepository->findAll() : 
+            $quoteRepository->findByUser($this->getUser())
+        ;
         return $this->render('back/quote/index.html.twig', [
-            'quotes' => $quoteRepository->findAll(),
+            'quotes' => $quotes,
         ]);
     }
 
