@@ -36,7 +36,7 @@ class IngredientController extends AbstractController
             return $this->redirectToRoute('app_admin_ingredient_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('back/ingredient/new.html.twig', [
+        return $this->render('back/ingredient/new.html.twig', [
             'ingredient' => $ingredient,
             'form' => $form,
         ]);
@@ -54,7 +54,7 @@ class IngredientController extends AbstractController
             return $this->redirectToRoute('app_admin_ingredient_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('back/ingredient/edit.html.twig', [
+        return $this->render('back/ingredient/edit.html.twig', [
             'ingredient' => $ingredient,
             'form' => $form,
         ]);
