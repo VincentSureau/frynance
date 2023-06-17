@@ -1,6 +1,6 @@
 {% extends 'theme/layouts/auth_layout.html.twig' %}
 
-{% block title %}Registration{% endblock %}
+{% block title %}{{ 'Registration'|trans() }}{% endblock %}
 
 {% block content %}
     {% for flash_error in app.flashes('verify_email_error') %}
