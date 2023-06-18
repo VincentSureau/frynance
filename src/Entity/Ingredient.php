@@ -9,6 +9,7 @@ use App\Repository\IngredientRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Ingredient implements Translatable
 {
     #[ORM\Id]
