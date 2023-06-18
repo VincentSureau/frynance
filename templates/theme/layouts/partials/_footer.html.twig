@@ -1,13 +1,11 @@
-<footer>
-    <div class="footer clearfix mb-0 text-muted col-md-8 offset-md-2">
-        {% block content %}
-            <div class="float-start">
-                <p>2021 &copy; Mazer</p>
-            </div>
-            <div class="float-end">
-                <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                            href="https://saugi.me">Saugi</a></p>
-            </div>
-        {% endblock %}
-    </div>
+<footer class="py-3 my-4 border-top">
+    {% block content %}
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <p class="col-md-4 mb-0 text-muted flex-fill">&copy;{{ 'now'|date('Y') }} Vincent Sureau</p>
+
+            <ul class="flex-fill nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="{{ path('app_front_legals') }}" class="nav-link px-2 text-muted">{{ 'Mention légales'|trans() }}</a></li>
+            </ul>
+        </div>
+    {% endblock %}
 </footer>

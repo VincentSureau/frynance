@@ -1,13 +1,15 @@
 {% extends 'theme/layouts/partials/_footer.html.twig' %}
 
-{% block content %}
-    <div class="d-flex text-center">
-        <div class="p-2 flex-fill">Flex item with a lot of content</div>
-        <div class="p-2 flex-fill">
-            <div class="d-flex justify-content-center">
+    {% block content %}
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <p class="col-md-4 mb-0 text-muted flex-fill">&copy;{{ 'now'|date('Y') }} Vincent Sureau</p>
+            
+            <div class="flex-fill">
                 {% include 'theme/layouts/partials/components/_theme_switch.html.twig' %}
             </div>
+            
+            <ul class="flex-fill nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="{{ path('app_front_legals') }}" class="nav-link px-2 text-muted">{{ 'Mention légales'|trans() }}</a></li>
+            </ul>
         </div>
-        <div class="p-2 flex-fill">Flex item</div>
-    </div>
-{% endblock %}
+    {% endblock %}
