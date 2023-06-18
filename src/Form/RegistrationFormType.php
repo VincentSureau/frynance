@@ -14,6 +14,8 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Validator\Constraints\PasswordStrength;
+use Symfony\Component\Validator\Constraints\NotCompromisedPassword;
 
 class RegistrationFormType extends AbstractType
 {
@@ -69,7 +71,13 @@ class RegistrationFormType extends AbstractType
                         'autocomplete' => 'new-password',
                         'class' => 'form-control form-control-xl',
                         'placeholder' => 'Password'
-                    ]
+                    ],
+                    'constraints' => [
+                        new PasswordStrength([
+                            'minScore' => PasswordStrength::STRENGTH_REASONABLE,
+                        ], groups: ['registration']),
+                        new NotCompromisedPassword(groups: ['registration'])
+                    ],
                 ],
                 'second_options' => [
                     'label' => 'Repeat Password',
@@ -88,7 +96,6 @@ class RegistrationFormType extends AbstractType
         $resolver->setDefaults([
             'data_class' => User::class,
             'validation_groups' => ['registration'],
-            'novalidate' => 'novalidate', // uses to test form errors
             'translation_domain' => 'auth'
         ]);
     }
