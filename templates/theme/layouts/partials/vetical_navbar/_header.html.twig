@@ -19,7 +19,7 @@
                         <div class="user-menu d-flex">
                             <div class="user-name text-end me-3">
                                 <h6 class="mb-0 text-gray-600">{{ app.user.firstname ~ ' ' ~ app.user.lastname }}</h6>
-                                <p class="mb-0 text-sm text-gray-600">{{ app.user.roles|map(role => "<span class='badge bg-primary'>#{role}</span>")|join('')|raw }}</p>
+                                <p class="mb-0 text-sm text-gray-600">{{ app.user.roles|map(role => "<span class='badge bg-primary me-1'>#{role|split('_')[1]|lower|u.title}</span>")|join('')|raw }}</p>
                             </div>
                             <div class="user-img d-flex align-items-center">
                                 <div class="avatar avatar-md">

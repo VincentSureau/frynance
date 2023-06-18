@@ -33,7 +33,7 @@
                                         <tr>
                                             <td>{{ user.id }}</td>
                                             <td>{{ user.email }}</td>
-                                            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                                            <td>{{ user.roles|map(role => "<span class='badge bg-primary me-1'>#{role|split('_')[1]|lower|u.title}</span>")|join('')|raw }}</td>
                                             <td>{{ user.firstname }}</td>
                                             <td>{{ user.lastname }}</td>
                                             <td>{{ user.isVerified ? 'admin.yes'|trans : 'admin.no'|trans }}</td>
