@@ -1,22 +1,7 @@
 {% extends 'theme/layouts/base.html.twig' %}
 
 {% block body %}
-    <nav class="navbar navbar-light">
-        <div class="container">
-            <a class="navbar-brand text-warning" href="{{ path('app_front_home') }}">
-                <img class="d-inline-block align-text-top" src="{{ asset('assets/images/image-2.png') }}">
-                Frynance
-            </a>
-            <div>
-                {% if app.user %}
-                    <a href="{{ path('app_admin_home') }}" class="btn btn-primary"><i class="bi bi-grid"></i> {{ 'navbar.dashboard'|trans }}</a>
-                    <a href="{{ path('app_front_logout') }}" class="btn btn-danger"><i class="bi bi-person"></i> {{ 'navbar.logout'|trans }}</a>
-                {% else %}
-                    <a href="{{ path('app_front_login') }}" class="btn btn-primary"><i class="bi bi-person"></i> {{ 'navbar.login'|trans }}</a>
-                {% endif %}
-            </div>
-        </div>
-    </nav>
+    {% include 'theme/layouts/partials/components/_navbar.html.twig' %}
     {% include 'common/_flash_messages.html.twig' %}
     {% block content %}{% endblock %}
     {% include 'theme/layouts/partials/horizontal/_footer.html.twig' %}

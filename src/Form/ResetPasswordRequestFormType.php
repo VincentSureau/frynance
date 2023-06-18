@@ -16,7 +16,8 @@ class ResetPasswordRequestFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'attr' => [
                     'autocomplete' => 'email',
-                    'class' => 'form-control form-control-xl'
+                    'class' => 'form-control form-control-xl',
+                    'placeholder' => 'Email'
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -29,6 +30,8 @@ class ResetPasswordRequestFormType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([]);
+        $resolver->setDefaults([
+            'translation_domain' => 'auth'
+        ]);
     }
 }

@@ -1,6 +1,9 @@
+
+{% trans_default_domain 'auth' %}
+
 {% extends 'theme/layouts/error_layout.html.twig' %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block title %}{{ "Password Reset Email Sent"|trans }}{% endblock %}
 
 {% block content %}
     <div class="error-page container">
@@ -9,10 +12,10 @@
                 <img class="img-error" src="assets/static/images/samples/error-403.svg" alt="Not Found">
                 <h1 class="error-title">{{ "Password Reset Email Sent"|trans }}</h1>
                 <p class="fs-5 text-gray-600">
-                    If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
-                    This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                    {{ "If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password."|trans() }}
+                    {{ "This link will expire in"|trans() }} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
                 </p>
-                <p class="fs-5 text-gray-600">If you don't receive an email please check your spam folder or <a href="{{ path('app_front_forgot_password_request') }}">try again</a>.</p>
+                <p class="fs-5 text-gray-600">{{ "If you don't receive an email please check your spam folder or"|trans() }} <a href="{{ path('app_front_forgot_password_request') }}">{{ "try again"|trans() }}</a>.</p>
                 <a href="{{ path('app_front_home') }}" class="btn btn-lg btn-outline-primary mt-3">
                     {{ 'Retour à l\'accueil'|trans }}
                 </a>

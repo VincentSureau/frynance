@@ -25,7 +25,7 @@ class ResetPasswordControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/fr/reset-password');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Forgot Password');
+        $this->assertSelectorTextContains('h1', 'Mot de passe oublié');
     }
  
     public function testValidUser(): void
@@ -41,7 +41,7 @@ class ResetPasswordControllerTest extends WebTestCase
         
         $crawler = $this->client->request('GET', '/fr/reset-password');
 
-        $buttonCrawlerNode = $crawler->selectButton('Send');
+        $buttonCrawlerNode = $crawler->selectButton('Envoyer');
         $form = $buttonCrawlerNode->form();
         $form['reset_password_request_form[email]'] = $user->getEmail();
         $this->client->submit($form);
@@ -58,7 +58,7 @@ class ResetPasswordControllerTest extends WebTestCase
     {
         $crawler = $this->client->request('GET', '/fr/reset-password');
 
-        $buttonCrawlerNode = $crawler->selectButton('Send');
+        $buttonCrawlerNode = $crawler->selectButton('Envoyer');
         $form = $buttonCrawlerNode->form();
         $form['reset_password_request_form[email]'] = 'invalid-email@example.com';
         $this->client->submit($form);

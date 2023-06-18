@@ -89,6 +89,7 @@ class RegistrationFormType extends AbstractType
             'data_class' => User::class,
             'validation_groups' => ['registration'],
             'novalidate' => 'novalidate', // uses to test form errors
+            'translation_domain' => 'auth'
         ]);
     }
 }
