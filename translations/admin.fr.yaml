@@ -79,11 +79,11 @@ admin:
         totalPrice: 'Coût total'
         sellPrice: 'Prix de vente conseillé'
     quote_line:
-        quantity: 'Quantité'
-        total: 'Total'
+        quantity: Quantité
+        total: Total
 'Check above for errors': 'Vérifier les erreurs'
 'Save all line items before continuing':
     '': 'Enregistrer tous les ingrédients'
 'Choose an Ingredient': Ingrédient
-'Choose a Recipe': 'Recette'
-'Choose an recipe': 'Recette'
+'Choose a Recipe': Recette
+'Choose an recipe': Recette
