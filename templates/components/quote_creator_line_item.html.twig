@@ -7,10 +7,10 @@
             <select
                 data-model="on(change)|recipe"
                 data-quote-line-target="recipeInput"
-                aria-label="{{ "Choose a Recipe"|trans }}"
+                aria-label="{{ "Choose a recipe"|trans }}"
                 class="form-control {{ _errors.has('recipe') ? 'is-invalid' }} d-none"
             >
-                <option value="" {{ not recipe ? 'selected' }}>{{ "Choose an recipe"|trans }}</option>
+                <option value="" {{ not recipe ? 'selected' }}>{{ "Choose a recipe"|trans }}</option>
                 {% for recipeOption in recipes %}
                     <option
                         data-price="{{ recipeOption.price }}"
