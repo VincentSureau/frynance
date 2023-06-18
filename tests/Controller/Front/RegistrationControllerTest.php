@@ -13,14 +13,14 @@ class RegistrationControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/fr/register');
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Sign Up');
+        $this->assertSelectorTextContains('h1', "M'inscrire");
     }
 
     public function testNewValidUser(): void
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/fr/register');
-        $buttonCrawlerNode = $crawler->selectButton('Sign Up');
+        $buttonCrawlerNode = $crawler->selectButton("M'inscrire");
 
         $form = $buttonCrawlerNode->form();
         $form['registration_form[email]'] = 'test@example.com';
@@ -54,7 +54,7 @@ class RegistrationControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/fr/register');
-        $buttonCrawlerNode = $crawler->selectButton('Sign Up');
+        $buttonCrawlerNode = $crawler->selectButton("M'inscrire");
 
         $form = $buttonCrawlerNode->form();
         $form['registration_form[email]'] = 'test';

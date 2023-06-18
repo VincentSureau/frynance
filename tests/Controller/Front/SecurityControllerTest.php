@@ -46,7 +46,7 @@ class SecurityControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/fr/login');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Log in.');
+        $this->assertSelectorTextContains('h1', 'Connexion.');
     }
 
     public function testLoginWithUnverifiedUser(): void
@@ -54,7 +54,7 @@ class SecurityControllerTest extends WebTestCase
         $user = $this->getEntity(false);
         $crawler = $this->client->request('GET', '/fr/login');
         
-        $form = $crawler->selectButton('Log in')->form();
+        $form = $crawler->selectButton('Connexion')->form();
         $form['email'] = 'name@example.com';
         $form['password'] = 'password';
 
@@ -74,7 +74,7 @@ class SecurityControllerTest extends WebTestCase
         $user = $this->getEntity();
         $crawler = $this->client->request('GET', '/fr/login');
         
-        $form = $crawler->selectButton('Log in')->form();
+        $form = $crawler->selectButton('Connexion')->form();
         $form['email'] = 'name@example.com';
         $form['password'] = 'password';
 
@@ -93,7 +93,7 @@ class SecurityControllerTest extends WebTestCase
     {
         $crawler = $this->client->request('GET', '/fr/login');
 
-        $form = $crawler->selectButton('Log in')->form();
+        $form = $crawler->selectButton('Connexion')->form();
         $form['email'] = 'invalid_username';
         $form['password'] = 'invalid_password';
 
