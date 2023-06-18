@@ -26,14 +26,16 @@ class IngredientCreatedNotifier
         private EntityManagerInterface $em,
         private MyMemoryApi $myMemoryService,
         #[Autowire('%app.supported_locales%')]
-        private string $supportedLocales
+        private string $supportedLocales,
+        #[Autowire('%kernel.default_locale%')]
+        string $defaultLocale
     )
     {
         $supportedLocales = array_map(
             fn(UnicodeString $locale) => $locale->toString(),
             u($this->supportedLocales)->split('|')
         );
-        $this->currentLocale = $requestStack->getCurrentRequest()->getLocale();
+        $this->currentLocale = $requestStack->getCurrentRequest()?->getLocale() ?? $defaultLocale;
         $this->destinationLocales = array_filter($supportedLocales, fn($locale) => $locale !== $this->currentLocale);
     }
 
