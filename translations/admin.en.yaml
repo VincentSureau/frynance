@@ -84,5 +84,5 @@ admin:
 'Check above for errors': 'Check above for errors'
 'Save all line items before continuing':
     '': 'Save all line items before continuing.'
-'Choose an Ingredient': 'Ingredient'
-'Choose a recipe': 'Recipe'
+'Choose an Ingredient': Ingredient
+'Choose a recipe': Recipe

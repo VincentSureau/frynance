@@ -31,7 +31,7 @@ Registration: Inscription
     '': 'Indiquez vos informations pour vous inscrire à notre site.'
 'Already have an account?': "J'ai déjà un compte ?"
 Login: Connexion
-'Firstname': 'Prénom'
-'Lastname': 'Nom'
+Firstname: Prénom
+Lastname: Nom
 'Confirm Password': 'Confirmez votre mot de passe'
 'Agree terms': "J'accepte les conditions générales d'utilisation"
