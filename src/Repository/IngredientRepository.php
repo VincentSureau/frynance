@@ -41,7 +41,7 @@ class IngredientRepository extends ServiceEntityRepository
     }
 
    /**
-    * @return Ingredient[] Returns an array of Ingredient objects
+    * @return Query[] Returns a query to paginate
     */
    public function getIngredients(): Query
    {

@@ -42,7 +42,7 @@ class QuoteRepository extends ServiceEntityRepository
     }
 
    /**
-    * @return Quote[] Returns an array of Quote objects
+    * @return Quote[] return a query to paginate
     */
    public function getQuotes(User $user): Query
    {

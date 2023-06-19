@@ -42,7 +42,7 @@ class RecipeRepository extends ServiceEntityRepository
     }
 
    /**
-    * @return Query[] Returns an array of Recipe objects
+    * @return Query[] return a query to paginate
     */
     public function getRecipes(User $user): Query
     {
