@@ -32,4 +32,9 @@ sidebar:
     recipes: Recettes
     quotes: Devis
     users: Utilisateurs
-'Mention légales': 'Mention légales'
+'Mentions légales': 'Mentions légales'
+contact:
+    title: "Contact"
+    subtitle: "Nous sommes à votre écoute ! N'hésitez pas à nous envoyer vos questions, commentaires ou suggestions via ce formulaire de contact."
+    btn: "Envoyer"
+    message_sent: "Votre message a bien été envoyé"

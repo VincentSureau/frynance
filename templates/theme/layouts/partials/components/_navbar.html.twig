@@ -12,10 +12,10 @@
                 {% include "theme/layouts/partials/components/_language_switch.html.twig" %}
                 {% if app.user %}
                     <li class="nav-item">
-                        <a href="{{ path('app_admin_home') }}" class="nav-link btn btn-primary"><i class="bi bi-grid"></i> {{ 'navbar.dashboard'|trans }}</a>
+                        <a href="{{ path('app_admin_home') }}" class="btn btn-primary"><i class="bi bi-grid"></i> {{ 'navbar.dashboard'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('app_front_logout') }}" class="nav-link btn btn-danger"><i class="bi bi-person"></i> {{ 'navbar.logout'|trans }}</a>
+                        <a href="{{ path('app_front_logout') }}" class="btn btn-danger"><i class="bi bi-person"></i> {{ 'navbar.logout'|trans }}</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
