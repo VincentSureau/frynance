@@ -5,6 +5,7 @@ namespace App\Controller\Back;
 use App\Entity\Quote;
 use App\Form\QuoteType;
 use App\Repository\QuoteRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,14 +18,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class QuoteController extends AbstractController
 {
     #[Route('/', name: 'quote_index', methods: ['GET'])]
-    public function index(QuoteRepository $quoteRepository): Response
+    public function index(QuoteRepository $quoteRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        $quotes = $this->isGranted('ROLE_ADMIN') ? 
-            $quoteRepository->findAll() : 
-            $quoteRepository->findByUser($this->getUser())
-        ;
+        $pagination = $paginator->paginate(
+            $quoteRepository->getQuotes($this->getUser()), /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
         return $this->render('back/quote/index.html.twig', [
-            'quotes' => $quotes,
+            'pagination' => $pagination,
         ]);
     }
 

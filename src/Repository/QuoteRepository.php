@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
 use App\Entity\Quote;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 
 /**
  * @extends ServiceEntityRepository<Quote>
@@ -38,6 +40,19 @@ class QuoteRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+   /**
+    * @return Quote[] return a query to paginate
+    */
+   public function getQuotes(User $user): Query
+   {
+       return $this->createQueryBuilder('q')
+           ->andWhere('q.user = :user')
+           ->setParameter('user', $user)
+           ->orderBy('q.id', 'ASC')
+           ->getQuery()
+       ;
+   }
 
 //    /**
 //     * @return Quote[] Returns an array of Quote objects
