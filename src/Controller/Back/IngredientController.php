@@ -17,12 +17,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class IngredientController extends AbstractController
 {
     #[Route('/', name: 'ingredient_index', methods: ['GET'])]
-    public function index(IngredientRepository $ingredientRepository,  PaginatorInterface $paginator, Request $request): Response
+    public function index(IngredientRepository $ingredientRepository, PaginatorInterface $paginator, Request $request): Response
     {
         $pagination = $paginator->paginate(
             $ingredientRepository->getIngredients(), /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            1 /*limit per page*/
+            10 /*limit per page*/
         );
 
         return $this->render('back/ingredient/index.html.twig', [
