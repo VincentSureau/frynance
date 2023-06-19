@@ -33,3 +33,8 @@ sidebar:
     quotes: Quotes
     users: Users
 'Mention légales': 'Legal notices'
+contact:
+    title: "Contact"
+    subtitle: "We're here for you! Feel free to send us any questions, comments, or suggestions via this contact form."
+    btn: "Send"
+    message_sent: "Your message has been sent"
