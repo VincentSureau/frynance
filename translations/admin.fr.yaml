@@ -95,3 +95,6 @@ admin:
 'old password': 'Ancien mot de passe'
 'New password': 'Nouveau mot de passe'
 'Repeat Password': 'Confirmez votre mot de passe'
+vich_uploader.form_label.delete_confirm: "Supprimer le fichier"
+vich_uploader.link.download: "Télécharger l'image"
+"Avatar": "Avatar"

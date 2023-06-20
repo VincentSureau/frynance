@@ -95,3 +95,6 @@ admin:
 'old password': 'old password'
 'New password': 'New password'
 'Repeat Password': 'Repeat Password'
+vich_uploader.form_label.delete_confirm: "Delete file"
+vich_uploader.link.download: "Download file"
+"Avatar": "Avatar"
