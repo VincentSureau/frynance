@@ -1,0 +1,15 @@
+.vich-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    img {
+        height: 100px;
+        max-width: 100%
+    }
+
+    .form-check {
+        margin-bottom: 1rem;
+    }
+}

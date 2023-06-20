@@ -1,0 +1,40 @@
+{% trans_default_domain 'admin' %}
+
+{% extends 'back/layout.html.twig' %}
+
+{% block title %}{{ 'admin.profile.title'|trans }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title">{{ 'admin.profile.title'|trans }}</h1>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            {# start card content #}
+                            {% include 'back/profile/_form.html.twig' with { 'form': infosForm } %}
+                            {# end card content #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title">{{ 'admin.profile.change_password'|trans }}</h1>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            {# start card content #}
+                            {% include 'back/profile/_form.html.twig' with { 'form': changePasswordForm } %}
+                            {# end card content #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

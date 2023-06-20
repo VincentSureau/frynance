@@ -73,6 +73,7 @@ class RegistrationFormType extends AbstractType
                         'placeholder' => 'Password'
                     ],
                     'constraints' => [
+                        new NotBlank(),
                         new PasswordStrength([
                             'minScore' => PasswordStrength::STRENGTH_REASONABLE,
                         ], groups: ['registration']),
