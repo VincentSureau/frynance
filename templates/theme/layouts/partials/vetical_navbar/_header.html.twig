@@ -23,7 +23,11 @@
                             </div>
                             <div class="user-img d-flex align-items-center">
                                 <div class="avatar avatar-md">
-                                    <img src="assets/static/images/faces/1.jpg">
+                                    {% if app.user.imageName %}                                        
+                                        <img src="{{ vich_uploader_asset(app.user, 'imageFile') }}">
+                                    {% else %}                                        
+                                        <i style="font-size: 2rem; width: 2rem; height: 2rem;" class="bi bi-person-circle"></i>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

@@ -29,6 +29,7 @@ class ProfileController extends AbstractController
 
         if($infosForm->isSubmitted() && $infosForm->isValid()) {
             $userRepository->save($user, true);
+            $user->setImageFile(null);
             $this->addFlash('success', 'Your data have been updated');
             $this->redirectToRoute('app_admin_profile');
         }
@@ -38,7 +39,6 @@ class ProfileController extends AbstractController
                 $user,
                 $changePasswordForm->get('plainPassword')->getData()
             ));
-
             $this->addFlash('success', 'Your password has been updated');
             $this->redirectToRoute('app_admin_profile');
         }
