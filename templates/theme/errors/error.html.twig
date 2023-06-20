@@ -4,7 +4,7 @@
     <div class="error-page container">
         <div class="col-md-8 col-12 offset-md-2">
             <div class="text-center">
-                <img class="img-error" src="assets/static/images/samples/error-403.svg" alt="Not Found">
+                <img class="img-error" src="{{ asset("assets/images/error-403.svg") }}" alt="Not Found">
                 <h1 class="error-title">{{ title|trans }}</h1>
                 <p class="fs-5 text-gray-600">{{ description|trans }}</p>
                 <a href="{{ path(redirect_path ?? 'app_front_home') }}" class="btn btn-lg btn-outline-primary mt-3">
