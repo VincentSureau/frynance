@@ -89,12 +89,15 @@ admin:
     '': 'Enregistrer tous les ingrédients'
 'Choose an Ingredient': Ingrédient
 'Choose a recipe': Recette
-'Firstname': 'Prénom'
-'Lastname': 'Nom'
-'Email': 'Email'
+Firstname: Prénom
+Lastname: Nom
+Email: Email
 'old password': 'Ancien mot de passe'
 'New password': 'Nouveau mot de passe'
 'Repeat Password': 'Confirmez votre mot de passe'
-vich_uploader.form_label.delete_confirm: "Supprimer le fichier"
-vich_uploader.link.download: "Télécharger l'image"
-"Avatar": "Avatar"
+vich_uploader:
+    form_label:
+        delete_confirm: 'Supprimer le fichier'
+    link:
+        download: "Télécharger l'image"
+Avatar: Avatar
