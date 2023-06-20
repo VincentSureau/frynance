@@ -59,6 +59,8 @@ class ProfilePasswordType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([]);
+        $resolver->setDefaults([
+            'translation_domain' => 'admin'
+        ]);
     }
 }
