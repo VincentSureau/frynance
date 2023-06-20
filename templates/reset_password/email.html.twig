@@ -15,6 +15,4 @@
     {{ macros.text("Changez votre mot de passe en cliquant sur le lien suivant  :"|trans()) }}
     {{ macros.button_link("Changer mon mot de passe"|trans(), url('app_front_reset_password', {token: resetToken.token}) ) }}
     {{ macros.text("Ce lien expirera dans "|trans() ~ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle')) }}
-    {{ macros.text("test") }}
-
 {% endblock %}
