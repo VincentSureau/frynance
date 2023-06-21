@@ -131,11 +131,11 @@ symfony server:start
 | Sass | [Sass](https://sass-lang.com/) | A mature, stable, and powerful professional grade CSS extension language. |
 | Fontawesome | [Fontawesome](https://fontawesome.com/) | A full suite of scalable vector icons that can be customized with CSS. |
 | Select 2 | [Select 2](https://select2.org/) | A jQuery based customizable select box with support for searching, tagging, remote data sets, infinite scrolling, and many other options. |
-|Frontend|||
+|Backend|||
 | Symfony | [Symfony](https://symfony.com/) | A PHP web application framework for MVC applications. |
-| stof doctrine extensions | [stof doctrine extensions](https://github.com/stof/StofDoctrineExtensionsBundle) | Doctrine2 behavioral extensions, such as Translatable, Sluggable, Tree, etc. |
+| Stof doctrine extensions | [stof doctrine extensions](https://github.com/stof/StofDoctrineExtensionsBundle) | Doctrine2 behavioral extensions, such as Translatable, Sluggable, Tree, etc. |
 | Knp Paginator Bundle | [Knp Paginator Bundle](https://github.com/KnpLabs/KnpPaginatorBundle) | A Symfony bundle for paginating arrays and objects. |
-| vich Uploader Bundle | [vich Uploader Bundle](https://github.com/dustin10/VichUploaderBundle) | A bundle to ease file uploads attached to entities. |
+| Vich Uploader Bundle | [vich Uploader Bundle](https://github.com/dustin10/VichUploaderBundle) | A bundle to ease file uploads attached to entities. |
 | Webpack Encore Bundle | [Webpack Encore Bundle](https://github.com/symfony/webpack-encore-bundle) | A simple JavaScript and CSS compiler for Symfony apps. |
 | Reset Password Bundle | [Reset Password Bundle](https://github.com/SymfonyCasts/reset-password-bundle) | A bundle that provides a secure and robust way to reset a user's password. |
 | Verify Email Bundle | [Verify Email Bundle](https://github.com/SymfonyCasts/verify-email-bundle) | A bundle that provides a customizable system for email verification. |
