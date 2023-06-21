@@ -25,8 +25,16 @@ class Recipe
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class)]
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class, orphanRemoval: true)]
     private Collection $recipeIngredients;
+
+    #[Assert\PositiveOrZero]
+    #[ORM\Column]
+    private ?float $price = 0;
+
+    #[Assert\PositiveOrZero]
+    #[ORM\Column]
+    private ?int $preparation = 0;
 
     public function __construct()
     {
@@ -90,5 +98,34 @@ class Recipe
         }
 
         return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getPreparation(): ?int
+    {
+        return $this->preparation;
+    }
+
+    public function setPreparation(int $preparation): self
+    {
+        $this->preparation = $preparation;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->title;
     }
 }

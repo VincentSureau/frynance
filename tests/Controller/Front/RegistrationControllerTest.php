@@ -13,21 +13,21 @@ class RegistrationControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/fr/register');
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Sign Up');
+        $this->assertSelectorTextContains('h1', "M'inscrire");
     }
 
     public function testNewValidUser(): void
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/fr/register');
-        $buttonCrawlerNode = $crawler->selectButton('Sign Up');
+        $buttonCrawlerNode = $crawler->selectButton("M'inscrire");
 
         $form = $buttonCrawlerNode->form();
         $form['registration_form[email]'] = 'test@example.com';
         $form['registration_form[firstname]'] = 'firstname';
         $form['registration_form[lastname]'] = 'lastname';
-        $form['registration_form[plainPassword][first]'] = "password";
-        $form['registration_form[plainPassword][second]'] = "password";
+        $form['registration_form[plainPassword][first]'] = 'fhW*n%y$zBx3L@&UWqG6ktn#YPmY$tgG68P&S5JSAVPK';
+        $form['registration_form[plainPassword][second]'] = 'fhW*n%y$zBx3L@&UWqG6ktn#YPmY$tgG68P&S5JSAVPK';
         $form['registration_form[agreeTerms]']->tick();
         $client->submit($form);
 
@@ -54,14 +54,14 @@ class RegistrationControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/fr/register');
-        $buttonCrawlerNode = $crawler->selectButton('Sign Up');
+        $buttonCrawlerNode = $crawler->selectButton("M'inscrire");
 
         $form = $buttonCrawlerNode->form();
         $form['registration_form[email]'] = 'test';
         $form['registration_form[firstname]'] = '';
         $form['registration_form[lastname]'] = '';
-        $form['registration_form[plainPassword][first]'] = "password";
-        $form['registration_form[plainPassword][second]'] = "password2";
+        $form['registration_form[plainPassword][first]'] = 'fhW*n%y$zBx3L@&UWqG6ktn#YPmY$tgG68P&S5JSAVPm';
+        $form['registration_form[plainPassword][second]'] = 'fhW*n%y$zBx3L@&UWqG6ktn#YPmY$tgG68P&S5JSAVPK';
         $client->submit($form);
 
         $this->assertResponseIsSuccessful();

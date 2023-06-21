@@ -1,16 +1,15 @@
+{% trans_default_domain 'auth' %}
+
 {% extends 'theme/layouts/auth_layout.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
+{% block title %}{{ "Reset your password"|trans() }}{% endblock %}
 
 {% block content %}
-<div class="row h-100">
+<div class="row">
     <div class="col-lg-5 col-12">
         <div id="auth-left">
-            <div class="auth-logo">
-                <a href="index.html"><img src="{{ asset('assets/images/image-2.png') }}" alt="Logo"></a>
-            </div>
-            <h1 class="auth-title">Forgot Password</h1>
-            <p class="auth-subtitle mb-5">Input your email and we will send you reset password link.</p>
+            <h1 class="auth-title">{{ "Forgot Password"|trans() }}</h1>
+            <p class="auth-subtitle mb-5">{{ "Input your email and we will send you reset password link."|trans() }}</p>
             {% for flash_error in app.flashes('reset_password_error') %}
                 <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
             {% endfor %}
@@ -24,15 +23,14 @@
                 </div>
                 <div>
                     <small>
-                        Enter your email address and we will send you a
-                        link to reset your password.
+                        {{ "Enter your email address and we will send you a link to reset your password."|trans() }}
                     </small>
                 </div>
 
-                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Send</button>
+                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">{{ "Send"|trans() }}</button>
             {{ form_end(requestForm) }}
             <div class="text-center mt-5 text-lg fs-4">
-                <p class='text-gray-600'>Remember your account? <a href="{{ path('app_front_login') }}" class="font-bold">Log in</a>.
+                <p class='text-gray-600'>{{ "Remember your account ?"|trans() }} <a href="{{ path('app_front_login') }}" class="font-bold">{{ "Log in"|trans() }}</a>.
                 </p>
             </div>
         </div>

@@ -1,0 +1,57 @@
+{% trans_default_domain 'admin' %}
+
+{% extends 'back/layout.html.twig' %}
+
+{% block title %}{{ 'admin.recipe.index.title'|trans }}{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">{{ 'admin.recipe.index.title'|trans }}</h1>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <a class="btn btn-primary" href="{{ path('app_admin_recipe_new') }}">{{ 'admin.recipe.create_new'|trans }}</a>
+                        <div class="table-responsive">
+                            <table class="table table-lg">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>{{ 'admin.recipe.title'|trans }}</th>
+                                        <th>{{ 'admin.recipe.preparation'|trans }}</th>
+                                        <th>{{ 'admin.recipe.price'|trans }}</th>
+                                        <th>{{ 'admin.recipe.actions'|trans }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for recipe in pagination %}
+                                        <tr>
+                                            <td class="text-bold-500">{{ recipe.id }}</td>
+                                            <td class="text-bold-500">{{ recipe.title }}</td>
+                                            <td class="text-bold-500">{{ recipe.preparation }} min</td>
+                                            <td class="text-bold-500">{{ recipe.price|format_currency('EUR') }}</td>
+                                            <td class="text-bold-500">
+                                                <a class="btn btn-primary btn-sm" href="{{ path('app_admin_recipe_edit', {'id': recipe.id}) }}"><i class="bi bi-pencil"></i> {{ "admin.edit"|trans }}</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td class="text-bold-500" colspan="3">{{ "admin.no_reccords"|trans }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

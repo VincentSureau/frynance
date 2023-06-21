@@ -1,0 +1,103 @@
+admin:
+    no_reccords: 'Aucun résultats'
+    edit: Modifier
+    back_to_list: Retour
+    save: Enregistrer
+    ingredient:
+        name: Nom
+        actions: Actions
+        create_new: 'Ajouter un ingrédient'
+        index:
+            title: 'Liste des ingrédients'
+        edit:
+            title: "Modifier l'ingrédient"
+        create:
+            title: 'Ajouter un ingrédient'
+        form:
+            name: Nom
+    delete: Supprimer
+    delete_confirm: 'Êtes-vous sûr de vouloir supprimer cet élément?'
+    user:
+        create:
+            title: 'Ajouter un utilisateur'
+        index:
+            title: 'Liste des utilisateurs'
+        create_new: 'Ajouter un utilisateur'
+        email: Email
+        roles: Roles
+        firstname: Prénom
+        lastname: Nom
+        isverified: Vérifié
+        actions: Actions
+        edit:
+            title: "Modifier l'utilisateur"
+        form:
+            firstname: Prénom
+            lastname: Nom
+            email: Email
+            isverified: Vérifié
+    'yes': Oui
+    'no': Non
+    view: Voir
+    recipe:
+        create:
+            title: 'Ajouter une recette'
+        index:
+            title: 'Liste des recettes'
+        create_new: 'Ajouter une recette'
+        title: Recette
+        actions: Actions
+        edit:
+            title: 'Modifier la recette'
+        ingredients: Ingrédients
+        preparation: 'Temps de préparation'
+        price: Prix
+        ingredient:
+            name: Ingrédient
+            quantity: Quantité
+            unit_price: 'Prix unitaire'
+            amount: 'Quantité recette'
+            price: 'Prix recette'
+            unit: Unité
+        add_ingredient: 'Ajouter un ingrédient'
+        add_recipe: 'Ajouter une recette'
+    quote:
+        edit:
+            title: 'Modifier le devis'
+        create:
+            title: 'Créer un devis'
+        index:
+            title: 'Liste des devis'
+        create_new: 'Créer un devis'
+        title: Titre
+        price: Prix
+        actions: Actions
+        labourCost: "Coût main d'oeuvre / h"
+        recipes: 'Coûts ingrédients'
+        totalRecipes: 'Coût total ingrédient'
+        totalLabour: "Coût total main d'oeuvre"
+        totalPrice: 'Coût total'
+        sellPrice: 'Prix de vente conseillé'
+    quote_line:
+        quantity: Quantité
+        total: Total
+    profile:
+        title: 'Mon profile'
+        change_password: 'Modifier mon mot de passe'
+'Check above for errors': 'Vérifier les erreurs'
+'Save all line items before continuing':
+    '': 'Enregistrer tous les ingrédients'
+'Choose an Ingredient': Ingrédient
+'Choose a recipe': Recette
+Firstname: Prénom
+Lastname: Nom
+Email: Email
+'old password': 'Ancien mot de passe'
+'New password': 'Nouveau mot de passe'
+'Repeat Password': 'Confirmez votre mot de passe'
+vich_uploader:
+    form_label:
+        delete_confirm: 'Supprimer le fichier'
+    link:
+        download: "Télécharger l'image"
+Avatar: Avatar

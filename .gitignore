@@ -4,6 +4,7 @@
 .env.*.local
 config/secrets/prod/prod.decrypt.private.php
 public/bundles/
+public/assets/
 var/
 vendor/
 ###< symfony/framework-bundle ###
@@ -27,3 +28,5 @@ composer.phar
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+public/images/

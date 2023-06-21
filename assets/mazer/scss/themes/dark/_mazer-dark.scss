@@ -83,3 +83,7 @@
         }
     }
 }
+
+.navbar {
+    @extend .navbar-dark; 
+}

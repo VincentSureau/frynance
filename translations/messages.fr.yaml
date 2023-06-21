@@ -1,21 +1,40 @@
 home:
-  hero:
-    title: "Calculez le coût de vos recettes facilement avec <span>Frynance</span>"
-    subtitle: "La première application en ligne 100% gratuite qui vous aide à fixer vos prix et créer vos devis pour vendre vos gateaux en ligne"
-    cta: "Je m'inscris"
-  features:
-    title: "Maximisez votre rentabilité, un ingrédient à la fois !"
-    paragraph1: "Transformez vos recettes en profits avec notre application de calcul de coût de recettes."
-    paragraph2: "Découvrez notre application de calcul de coût de recettes, une plateforme innovante conçue pour aider les cuisiniers amateurs, les chefs professionnels et les propriétaires de restaurant à déterminer un prix de vente rentable pour leurs recettes. En se basant sur le coût réel des ingrédients tirés des prix des magasins en ligne, notre application web intuitive vous aide à établir un prix de vente compétitif tout en assurant une marge bénéficiaire."
-    feature1:
-      title: "Gestion des Recettes"
-      description: "Créez, modifiez et sauvegardez vos recettes avec la liste des ingrédients et leurs quantités."
-    feature2:
-      title: "Optimisez vos Prix"
-      description: "Assurez-vous que le prix de vente de vos recettes est compétitif tout en maintenant une marge bénéficiaire saine."
-    feature3:
-      title: "Gagnez du temps"
-      description: "Plus besoin de rechercher et calculer manuellement le coût de chaque ingrédient, notre application le fait pour vous."
-    feature4:
-      title: "Calcul Automatique du Coût"
-      description: "Le coût total de la recette est automatiquement calculé, permettant de définir un prix de vente approprié."
+    hero:
+        title: 'Calculez le coût de vos recettes facilement avec <span>Frynance</span>'
+        subtitle: 'La première application en ligne 100% gratuite qui vous aide à fixer vos prix et créer vos devis pour vendre vos gateaux en ligne'
+        cta: "Je m'inscris"
+    features:
+        title: 'Maximisez votre rentabilité, un ingrédient à la fois !'
+        paragraph1: 'Transformez vos recettes en profits avec notre application de calcul de coût de recettes.'
+        paragraph2: 'Découvrez notre application de calcul de coût de recettes, une plateforme innovante conçue pour aider les cuisiniers amateurs, les chefs professionnels et les propriétaires de restaurant à déterminer un prix de vente rentable pour leurs recettes. En se basant sur le coût réel des ingrédients tirés des prix des magasins en ligne, notre application web intuitive vous aide à établir un prix de vente compétitif tout en assurant une marge bénéficiaire.'
+        feature1:
+            title: 'Gestion des Recettes'
+            description: 'Créez, modifiez et sauvegardez vos recettes avec la liste des ingrédients et leurs quantités.'
+        feature2:
+            title: 'Optimisez vos Prix'
+            description: 'Assurez-vous que le prix de vente de vos recettes est compétitif tout en maintenant une marge bénéficiaire saine.'
+        feature3:
+            title: 'Gagnez du temps'
+            description: 'Plus besoin de rechercher et calculer manuellement le coût de chaque ingrédient, notre application le fait pour vous.'
+        feature4:
+            title: 'Calcul Automatique du Coût'
+            description: 'Le coût total de la recette est automatiquement calculé, permettant de définir un prix de vente approprié.'
+'Password Reset Email Sent': 'Un email de réinitialisation du mot de passe a été envoyé'
+"Retour à l'accueil": "Retour à l'accueil"
+navbar:
+    dashboard: Dahsboard
+    logout: Déconnexion
+    login: Connexion
+    profile: 'Mon compte'
+'Recipe saved!': 'Recette enregistrée !'
+sidebar:
+    ingredients: Ingredients
+    recipes: Recettes
+    quotes: Devis
+    users: Utilisateurs
+'Mentions légales': 'Mentions légales'
+contact:
+    title: Contact
+    subtitle: "Nous sommes à votre écoute ! N'hésitez pas à nous envoyer vos questions, commentaires ou suggestions via ce formulaire de contact."
+    btn: Envoyer
+    message_sent: 'Votre message a bien été envoyé'

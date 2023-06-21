@@ -1,0 +1,17 @@
+{% trans_default_domain 'email' %}
+
+{% extends "theme/layouts/email_layout.html.twig" %}
+
+{% import "theme/layouts/partials/components/_email_line_macro.html.twig" as macros %}
+
+{% block title %}Vous avez reçu un message sur Frynance{% endblock %}
+
+{% block header_title %}Vous avez reçu un message sur Frynance{% endblock %}
+
+{% block header_subtitle %}{{ "Calculez le coût de vos recette facilement avec Frynance !"|trans() }}{% endblock %}
+
+{% block content %}
+    {{ macros.title("Vous venez de recevoir un nouveau message sur Frynance") }}
+    {{ macros.text("Expéditeur : " ~ contact.email ) }}
+    {{ macros.text(contact.message) }}
+{% endblock %}

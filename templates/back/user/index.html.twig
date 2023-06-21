@@ -1,0 +1,60 @@
+{% trans_default_domain 'admin' %}
+
+{% extends 'back/layout.html.twig' %}
+
+{% block title %}{{ 'admin.user.index.title'|trans }}{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">{{ 'admin.user.index.title'|trans }}</h1>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <a class="btn btn-primary" href="{{ path('app_admin_user_new') }}">{{ 'admin.user.create_new'|trans }}</a>
+                        <div class="table-responsive">
+                            <table class="table table-lg">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>{{ 'admin.user.email'|trans }}</th>
+                                        <th>{{ 'admin.user.roles'|trans }}</th>
+                                        <th>{{ 'admin.user.firstname'|trans }}</th>
+                                        <th>{{ 'admin.user.lastname'|trans }}</th>
+                                        <th>{{ 'admin.user.isverified'|trans }}</th>
+                                        <th>{{ 'admin.user.actions'|trans }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in pagination %}
+                                        <tr>
+                                            <td>{{ user.id }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.roles|map(role => "<span class='badge bg-primary me-1'>#{role|split('_')[1]|lower|u.title}</span>")|join('')|raw }}</td>
+                                            <td>{{ user.firstname }}</td>
+                                            <td>{{ user.lastname }}</td>
+                                            <td>{{ user.isVerified ? 'admin.yes'|trans : 'admin.no'|trans }}</td>
+                                            <td class="d-flex">
+                                                <a class="btn btn-primary btn-sm me-1" href="{{ path('app_admin_user_edit', {'id': user.id}) }}"><i class="bi bi-eye"></i><span class="visually-hidden">{{ "admin.view"|trans }}</span></a>
+                                                <a class="btn btn-primary btn-sm" href="{{ path('app_admin_user_edit', {'id': user.id}) }}"><i class="bi bi-pencil"></i><span class="visually-hidden">{{ "admin.edit"|trans }}</span></a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td class="text-bold-500" colspan="3">{{ "admin.no_reccords"|trans }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

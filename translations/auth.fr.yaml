@@ -1,0 +1,37 @@
+'Reset your password': 'Réinitialiser votre mot de passe'
+'Reset password': Réinitialiser
+'Password Reset Email Sent': 'Email de réinitialisation envoyé'
+'If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password':
+    '': 'Si un compte correspondant à votre email existe, un email contenant un lien de réinitialisation vous sera envoyé.'
+'This link will expire in': 'Ce lien expirera dans'
+"If you don't receive an email please check your spam folder or": "Si vous ne recevez pas d'email vérifiez vos spams ou"
+'try again': réessayez
+"Retour à l'accueil": "Retour à l'accueil"
+'Forgot Password': 'Mot de passe oublié'
+'Input your email and we will send you reset password link':
+    '': 'Indiquez votre email et nous vous enverrons un mail de réinitialisation'
+'Enter your email address and we will send you a link to reset your password':
+    '': 'Indiquez votre email et nous vous enverrons un mail de réinitialisation'
+Send: Envoyer
+'Remember your account ?': 'Je me souviens de mon compte ?'
+'Log in': Connexion
+'Log in with your data that you entered during registration':
+    '': 'Connectez vous avez les données saisies lors de votre inscription.'
+'You are logged in as': 'Vous êtes connecté en tant que'
+Logout: Déconnexion
+Email: Email
+Password: 'Mot de passe'
+'Keep me logged in': 'Rester connecté'
+"Don't have an account ?": "Je n'ai pas de compte ?"
+'Sign up': "M'inscrire"
+'Forgot password ?': 'Mot de passe oublié ?'
+Registration: Inscription
+'Sign Up': "M'inscrire"
+'Input your data to register to our website':
+    '': 'Indiquez vos informations pour vous inscrire à notre site.'
+'Already have an account?': "J'ai déjà un compte ?"
+Login: Connexion
+Firstname: Prénom
+Lastname: Nom
+'Confirm Password': 'Confirmez votre mot de passe'
+'Agree terms': "J'accepte les conditions générales d'utilisation"

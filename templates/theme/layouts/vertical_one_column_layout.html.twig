@@ -1,13 +1,7 @@
 {% extends 'theme/layouts/base.html.twig' %}
 
 {% block body %}
-    <nav class="navbar navbar-light">
-        <div class="container d-block">
-            <a class="navbar-brand ms-4" href="{{ path('app_front_home') }}">
-                <img src="{{ asset('assets/images/image-2.png') }}">
-            </a>
-        </div>
-    </nav>
+    {% include 'theme/layouts/partials/components/_navbar.html.twig' %}
     {% include 'common/_flash_messages.html.twig' %}
     {% block content %}{% endblock %}
     {% include 'theme/layouts/partials/horizontal/_footer.html.twig' %}

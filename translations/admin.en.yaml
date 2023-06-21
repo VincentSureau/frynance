@@ -1,0 +1,103 @@
+admin:
+    no_reccords: 'No records found'
+    edit: Edit
+    back_to_list: 'Back to list'
+    save: Save
+    ingredient:
+        name: Name
+        actions: Actions
+        create_new: 'Add ingrédient'
+        index:
+            title: 'Ingredients list'
+        edit:
+            title: 'Edit ingredient'
+        create:
+            title: 'Add ingrédient'
+        form:
+            name: Name
+    delete: Delete
+    delete_confirm: 'Are you sure to delete this item ?'
+    user:
+        create:
+            title: 'Add new user'
+        index:
+            title: 'User list'
+        create_new: 'Add user'
+        email: Email
+        roles: Roles
+        firstname: Firstname
+        lastname: Lastname
+        isverified: Verified
+        actions: Actions
+        edit:
+            title: Edit
+        form:
+            firstname: Firstname
+            lastname: Lastname
+            email: Email
+            isverified: Verified
+    'yes': 'Yes'
+    'no': 'No'
+    view: See
+    recipe:
+        create:
+            title: 'Add recipe'
+        index:
+            title: 'Recipes List'
+        create_new: 'Add recipe'
+        title: Recipe
+        actions: Actions
+        edit:
+            title: 'Edit recipe'
+        ingredients: Ingredients
+        preparation: 'Preparation duration'
+        price: Price
+        ingredient:
+            name: Ingredient
+            quantity: Quantity
+            unit_price: 'Unit price'
+            amount: Amount
+            unit: Unit
+            price: Price
+        add_ingredient: 'Add ingredient'
+        add_recipe: 'Add recipe'
+    quote:
+        edit:
+            title: 'Edit quote'
+        create:
+            title: 'New quote'
+        index:
+            title: 'Quote list'
+        create_new: 'Create quote'
+        title: Title
+        price: Price
+        actions: Actions
+        labourCost: 'Labour cost (per hour)'
+        recipes: Recipes
+        totalRecipes: 'Total recipes'
+        totalLabour: 'Total labour'
+        totalPrice: 'Total price'
+        sellPrice: 'Sell price'
+    quote_line:
+        quantity: Quantity
+        total: Total
+    profile:
+        title: 'My Profile'
+        change_password: 'Update Password'
+'Check above for errors': 'Check above for errors'
+'Save all line items before continuing':
+    '': 'Save all line items before continuing.'
+'Choose an Ingredient': Ingredient
+'Choose a recipe': Recipe
+Firstname: Firstname
+Lastname: Lastname
+Email: Email
+'old password': 'old password'
+'New password': 'New password'
+'Repeat Password': 'Repeat Password'
+vich_uploader:
+    form_label:
+        delete_confirm: 'Delete file'
+    link:
+        download: 'Download file'
+Avatar: Avatar

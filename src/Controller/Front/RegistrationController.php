@@ -27,7 +27,7 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/register', name: 'register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -50,7 +50,7 @@ class RegistrationController extends AbstractController
                 (new TemplatedEmail())
                     ->from(new Address('contact@frynance.com', 'Fry Nance'))
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject($translator->trans('Please Confirm your Email', [], 'email'))
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email

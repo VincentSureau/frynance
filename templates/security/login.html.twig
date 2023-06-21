@@ -1,16 +1,15 @@
+{% trans_default_domain 'auth' %}
+
 {% extends 'theme/layouts/auth_layout.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}{{ "Log in"|trans() }}!{% endblock %}
 
 {% block content %}
-    <div class="row h-100">
+    <div class"row">
         <div class="col-lg-5 col-12">
             <div id="auth-left">
-                <div class="auth-logo">
-                    <a href="index.html"><img src="{{ asset('assets/images/image-2.png') }}" alt="Logo"></a>
-                </div>
-                <h1 class="auth-title">Log in.</h1>
-                <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+                <h1 class="auth-title">{{ "Log in"|trans() }}.</h1>
+                <p class="auth-subtitle mb-5">{{ "Log in with your data that you entered during registration."|trans() }}</p>
                 <form method="post">
                     {% if error %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -18,7 +17,7 @@
 
                     {% if app.user %}
                         <div class="mb-3">
-                            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_front_logout') }}">Logout</a>
+                            {{ "You are logged in as"|trans() }} {{ app.user.userIdentifier }}, <a href="{{ path('app_front_logout') }}">{{ "Logout"|trans() }}</a>
                         </div>
                     {% endif %}
 
@@ -26,15 +25,15 @@
                         value="{{ csrf_token('authenticate') }}"
                     >
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <label class="visually-hidden" for="inputEmail">Email</label>
-                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-control-xl" autocomplete="email" required autofocus placeholder="Email">
+                        <label class="visually-hidden" for="inputEmail">{{ "Email"|trans() }}</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-control-xl" autocomplete="email" required autofocus placeholder="{{ "Email"|trans() }}">
                         <div class="form-control-icon">
                             <i class="bi bi-person"></i>
                         </div>
                     </div>
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <label class="visually-hidden" for="inputPassword">Password</label>
-                        <input type="password" name="password" id="inputPassword" class="form-control form-control-xl" autocomplete="current-password" required placeholder="Password">
+                        <label class="visually-hidden" for="inputPassword">{{ "Password"|trans() }}</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control form-control-xl" autocomplete="current-password" required placeholder="{{ "Password"|trans() }}">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
@@ -42,26 +41,15 @@
                     <div class="form-check form-check-lg d-flex align-items-end">
                         <input class="form-check-input me-2" type="checkbox" name="_remember_me" id="flexCheckDefault">
                         <label class="form-check-label text-gray-600" for="flexCheckDefault">
-                            Keep me logged in
+                            {{ "Keep me logged in"|trans() }}
                         </label>
                     </div>
-                    {#
-                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                        See https://symfony.com/doc/current/security/remember_me.html
 
-                        <div class="checkbox mb-3">
-                            <label>
-                                <input type="checkbox" name="_remember_me"> Remember me
-                            </label>
-                        </div>
-                    #}
-
-                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">{{ "Log in"|trans() }}</button>
                 </form>
                 <div class="text-center mt-5 text-lg fs-4">
-                    <p class="text-gray-600">Don't have an account? <a href="{{ path('app_front_register') }}" class="font-bold">Sign
-                            up</a>.</p>
-                    <p><a class="font-bold" href="{{ path('app_front_forgot_password_request') }}">Forgot password?</a>.</p>
+                    <p class="text-gray-600">{{ "Don't have an account ?"|trans() }} <a href="{{ path('app_front_register') }}" class="font-bold">{{ "Sign up"|trans() }}</a>.</p>
+                    <p><a class="font-bold" href="{{ path('app_front_forgot_password_request') }}">{{ "Forgot password ?"|trans() }}</a>.</p>
                 </div>
             </div>
         </div>

@@ -48,8 +48,18 @@
         font-size: 2rem;
         font-weight: bold;
 
-        img {
-            height: 1.2rem;
+        .logo {
+            font-size: 1.2rem;
+
+            a {
+                display: inline-flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            img {
+                height: 1.2rem;
+            }
         }
     }
     .sidebar-toggler.x {

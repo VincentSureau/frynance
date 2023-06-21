@@ -21,7 +21,10 @@ security:
       logout:
         path: app_front_logout
         # where to redirect after logout
-        # target: app_any_route
+        target: app_front_home
+      remember_me:
+        secret:   '%kernel.secret%' # required
+        lifetime: 604800
 
       # activate different ways to authenticate
       # https://symfony.com/doc/current/security.html#the-firewall
@@ -32,8 +35,12 @@ security:
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
   access_control:
+    - { path: ^/(%app.supported_locales%)/admin/(ingredient|user), roles: [ ROLE_ADMIN ] }
+    - { path: ^/(%app.supported_locales%)/admin/, roles: [ ROLE_USER ] }
     - { path: ^/(%app.supported_locales%), roles: [ PUBLIC_ACCESS ] }
-    - { path: ^/(%app.supported_locales%)/admin, roles: [ PUBLIC_ACCESS ] }
+
+  role_hierarchy:
+    ROLE_ADMIN: ROLE_USER
 
 when@test:
   security:

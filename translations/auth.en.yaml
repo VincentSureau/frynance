@@ -1,0 +1,37 @@
+'Reset your password': 'Reset your password'
+'Reset password': 'Reset password'
+'Password Reset Email Sent': 'Password Reset Email Sent'
+'If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password':
+    '': 'If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.'
+'This link will expire in': 'This link will expire in'
+"If you don't receive an email please check your spam folder or": "If you don't receive an email please check your spam folder or"
+'try again': 'try again'
+"Retour à l'accueil": 'Back home'
+'Forgot Password': 'Forgot Password'
+'Input your email and we will send you reset password link':
+    '': 'Input your email and we will send you reset password link.'
+'Enter your email address and we will send you a link to reset your password':
+    '': 'Enter your email address and we will send you a link to reset your password.'
+Send: Send
+'Remember your account ?': 'Remember your account ?'
+'Log in': 'Log in'
+'Log in with your data that you entered during registration':
+    '': 'Log in with your data that you entered during registration.'
+'You are logged in as': 'You are logged in as'
+Logout: Logout
+Email: Email
+Password: Password
+'Keep me logged in': 'Keep me logged in'
+"Don't have an account ?": "Don't have an account ?"
+'Sign up': 'Sign up'
+'Forgot password ?': 'Forgot password ?'
+Registration: Registration
+'Sign Up': 'Sign Up'
+'Input your data to register to our website':
+    '': 'Input your data to register to our website.'
+'Already have an account?': 'Already have an account?'
+Login: Login
+Firstname: Firstname
+Lastname: Lastname
+'Confirm Password': 'Confirm Password'
+'Agree terms': 'Agree terms'

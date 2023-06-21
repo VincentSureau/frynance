@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Ingredient;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -38,6 +39,17 @@ class IngredientRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+   /**
+    * @return Query[] Returns a query to paginate
+    */
+   public function getIngredients(): Query
+   {
+       return $this->createQueryBuilder('i')
+           ->orderBy('i.id', 'ASC')
+           ->getQuery()
+       ;
+   }
 
 //    /**
 //     * @return Ingredient[] Returns an array of Ingredient objects
