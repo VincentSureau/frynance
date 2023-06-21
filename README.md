@@ -57,7 +57,9 @@ symfony server:start
 # Then browse the given URL
 ```
 
-## Data dictionnary
+## Database
+
+### Data dictionnary
 
 |Table                      |Field         |Type    |Nullable|Comment       |
 |---------------------------|--------------|--------|--------|--------------|
@@ -123,7 +125,7 @@ symfony server:start
 |user                       |image_name    |varchar |YES     |              |
 |user                       |updated_at    |datetime|YES     |              |
 
-## Database Diagram
+### Diagram
 ![Databasee diagram](docs/mcd_dark.png)
 
 ## Dependencies
