@@ -4,6 +4,54 @@
 
 Frynance is a web-based application specifically designed to help culinary enthusiasts, professional chefs, and restaurant owners in managing their recipe costs efficiently. It enables the users to register, log in, save their recipes and create quotes, each having a detailed list of ingredients with their respective quantities. The application's standout feature is the calculation of a recipe's final cost, which aids in determining a profitable selling price for the dish. The platform also supports multi-language, password recovery, and order addition functionalities, ensuring an intuitive and user-friendly experience.
 
+## Installation
+
+
+1. Clone the repository 
+```sh
+git clone https://github.com/VincentSureau/frynance.git
+```
+
+2. Configure environnement variables
+```sh
+cp .env.local
+# Then fill environment variables with your actual local configuration
+```
+
+3. Install PHP dependencies
+```sh
+composer install
+```
+
+4. Install Frontend dependencies
+```sh
+yarn install
+yarn encore dev
+# OR
+npm install
+npm run dev
+```
+
+5. Create database and schema
+```sh
+symfony console doctrine:database:create
+symfony console doctrine:migration:migrate -n
+# OR
+php bin/console doctrine:database:create
+php bin/console doctrine:migration:migrate -n
+```
+
+6. Run tests
+```sh
+./vendor/bin/simple-phpunit
+```
+
+7. Run the project locally
+```sh
+symfony server:start
+# Then browse the given URL
+```
+
 ## Data dictionnary
 
 |Table                      |Field         |Type    |Nullable|Comment       |
