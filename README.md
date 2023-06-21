@@ -5,7 +5,7 @@
 	<a href="https://frynance.webmonkey.fr/en/">Demo website</a>
 </p>
 
-## Video Demo:  <URL HERE>
+## Video Demo:  https://youtu.be/kY9XzT2V0XU
 
 ## Description:
 Frynance is a web-based application specifically designed to help culinary enthusiasts, professional chefs, and restaurant owners in managing their recipe costs efficiently. It enables the users to register, log in, save their recipes and create quotes, each having a detailed list of ingredients with their respective quantities. The application's standout feature is the calculation of a recipe's final cost, which aids in determining a profitable selling price for the dish. The platform also supports multi-language, password recovery, and order addition functionalities, ensuring an intuitive and user-friendly experience.
