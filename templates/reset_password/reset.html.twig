@@ -5,10 +5,23 @@
 {% block title %}{{ "Reset your password"|trans() }}{% endblock %}
 
 {% block content %}
-    <h1>{{ "Reset your password"|trans() }}</h1>
+    <div class="row">
+        <div class="col-lg-5 col-12">
+            <div id="auth-left">
+                <h1 class="auth-title">{{ "Reset Password"|trans() }}</h1>
+                {% for flash_error in app.flashes('reset_password_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                {% endfor %}
+                {{ form_start(resetForm) }}
+                    {{ form_row(resetForm.plainPassword) }}
+                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">{{ "Reset password"|trans() }}</button>
+                {{ form_end(resetForm) }}
+            </div>
+        </div>
+        <div class="col-lg-7 d-none d-lg-block">
+            <div id="auth-right">
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">{{ "Reset password"|trans() }}</button>
-    {{ form_end(resetForm) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
